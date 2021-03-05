@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Health mining</title>
+    <link href="../css/reset.css" rel="stylesheet">
+    <link href="../css/swiper.css" rel="stylesheet">
+    <link href="../css/common.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.swiper.js"></script>
+    <script type="text/javascript" src="../js/commonui.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        document.createElement("header"); 
+        document.createElement("nav"); 
+        document.createElement("section"); 
+        document.createElement("article"); 
+        document.createElement("footer");
+    </script>
+<![endif]-->
+</head>
+
+<body>
+
+
+    <style>
+        html {
+            height: 100%;
+        }
+
+        .content {
+            height: 100%;
+            background: red;
+        }
+
+        .content:nth-child(odd) {
+            background: blue;
+        }
+
+
+        /* header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-size: 0;
+            background: #fff;
+            border-bottom: 1px solid #ebeff3;
+        }
+
+        .h-inner {
+            position: relative;
+            width: 1078px;
+            height: 90px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+
+        .h-inner .logo {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            display: inline-block;
+
+        }
+
+        nav {
+            display: inline-block;
+            padding-left: 130px;
+            font-size: 0;
+            /*width: 665px;*/
+        }
+
+        .nav-list {
+            display: inline-block;
+        }
+
+        .nav-list>li {
+            display: inline-block;
+        }
+
+        .nav-list>li+li {
+            margin-left: 70px;
+        }
+
+        .nav-list>li>a {
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+            line-height: 27px;
+            color: #909295;
+            white-space: nowrap;
+            transition: .5s;
+        }
+
+        .nav-list>li>a.on,
+        .nav-list>li>a:hover,
+        .nav-list>li>a:focus {
+            font-weight: 700;
+            color: #1e1e1e;
+        }
+
+        .nav-list>li>a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            border-bottom: 3px solid #056bff;
+            transition: .5s;
+        }
+
+        .nav-list>li>a.on:after,
+        .nav-list>li>a:hover:after,
+        .nav-list>li>a:focus:after {
+            left: 0;
+            width: 100%;
+        }
+
+        .h-util {
+            position: absolute;
+            top: 40px;
+            right: 0;
+        }
+
+        /* // header */
+
+
+        /* content */
+
+        .content {
+            padding-top: 90px;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .content.ty1 {
+            background: url(https://us.123rf.com/450wm/zhovba/zhovba1610/zhovba161000015/65243268-%EB%B0%80-%ED%95%98%EC%9A%B0%EC%8A%A4%EC%99%80-%ED%95%A8%EA%BB%98-%EB%86%8D%EC%B4%8C-%ED%92%8D%EA%B2%BD-%EB%B0%B0%EA%B2%BD-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-%EC%9E%91%EC%84%B1%EB%90%A9%EB%8B%88%EB%8B%A4-%EB%9E%98%EC%8A%A4%ED%84%B0-%EA%B7%B8%EB%A6%BC%EC%9E%85%EB%8B%88%EB%8B%A4-.jpg?ver=6) no-repeat center center / 100% 100%;
+        }
+
+        .content.ty2 {
+            background: url(https://img.lovepik.com/photo/40108/1192.jpg_wh860.jpg) no-repeat center center / 100% 100%;
+        }
+
+        .content.ty3 {
+            background: url(https://post-phinf.pstatic.net/MjAxNzA3MDNfMjU3/MDAxNDk5MDY4NTUwNTEx.pbprEScPu9m5b38QcSxWEczoDNxHkHQJM9_urVm62U8g.JoTrJ-_Tvxml5tGEuYkBAwX4Q7B6lC8-abEjTicB-pog.JPEG/a_2.JPG?type=w1200) no-repeat center center / 100% 100%;
+        }
+
+        .content.ty4 {
+            background: url(https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274__340.jpg) no-repeat center center / 100% 100%;
+        }
+
+        .content.ty5 {
+            background: url(https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-blue-light-stage-background-material-backgroundannual-meeting-stageconference-image_71339.jpg) no-repeat center center / 100% 100%;
+        }
+
+
+        .rnd-d {
+            display: inline-block;
+            padding: 0 17px;
+            font-size: 16px;
+            line-height: 33px;
+            border-radius: 25px;
+        }
+
+        .rnd-d.ty1 {
+            color: #fff;
+            background: #056bff;
+        }
+
+        .rnd-d.ty2 {
+            color: #fff;
+            background: #056bff;
+        }
+
+        /* // content */
+    </style>
+
+    <!-- 헤더영역 -->
+    <header>
+        <div class="h-inner">
+            <h1 class="logo">HealthMining</h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#">헬스마이닝</a></li>
+                    <li><a href="#">AI헬스Q</a></li>
+                    <li><a href="#">건강365</a></li>
+                    <li><a href="#">예방접종수첩</a></li>
+                    <li><a href="#">맞춤형 건강정보</a></li>
+                </ul>
+            </nav>
+            <div class="h-util">
+                <button type="button" class="rnd-d ty1">공동인증서</button>
+            </div>
+        </div>
+    </header>
+    <!-- //헤더영역 -->
+
+    <!-- 컨텐츠 영역 -->
+    <section class="content ty1">content ty1</section>
+    <section class="content ty2">content ty2</section>
+    <section class="content ty3">content ty3</section>
+    <section class="content ty4">content ty4</section>
+    <section class="content ty5">content ty5</section>
+    <!-- //컨텐츠 영역 -->
+</body>
+
+</html>
