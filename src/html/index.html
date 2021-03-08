@@ -4,10 +4,12 @@
 
 <script>
 $(function(){
+    var wheelCnt = 0;
+    var animaion = false;
     $('html').on('mousewheel DOMMouseScroll', function(e){
         e.preventDefault();
         var delta = 0;
-        //if (!event) event = window.event;
+        var wh = $(window).height();
         // firefox를 제외한 브라우져 마우스 이벤트 값
         if (event.wheelDelta) {
             delta = event.wheelDelta / 120;
@@ -18,27 +20,44 @@ $(function(){
             delta = -event.detail / 3;
 
 
-        console.log(delta);
+        console.log(delta, wheelCnt);
+
 
         if (delta > 0) {
             console.log('up');
+            if (animaion == false) {
+                animaion = true;
+                wheelCnt--;
+                wheelAnimate();
+            }
+            
         } else {
             console.log('down');
+            if (animaion == false) {
+                animaion = true;
+                wheelCnt++;
+                wheelAnimate();                
+            }
         }
-
-
     })
 })
+
+
+function wheelAnimate(){
+    $('html, body').stop().animate({
+        scrollTop: (wheelCnt * wh) + 'px',
+    }, 500, function(){
+        animaion = false;
+    })
+}
 </script>       
 
 
 <style>
-.ttt{position: fixed; top: 10px; left: 10px; z-index: 3; background: #fff; border: 1px solid blue; text-align: center; width: 300px; line-height: 30px; height: 30px;}
-
 
 html{
     height: 100%;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 .content{
@@ -139,13 +158,7 @@ nav{
 /* // header */
 
 
-
-
-
-
 </style>
-
-    <div class="ttt"></div>
 
     <!-- 헤더영역 -->
     <header>
