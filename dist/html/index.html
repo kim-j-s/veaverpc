@@ -32,8 +32,7 @@
             $('html').on('mousewheel DOMMouseScroll', function(e) {
                 e.preventDefault();
                 var delta = 0;
-                console.log(event);
-                if (!event) event = window.event;
+                //if (!event) event = window.event;
                 // firefox를 제외한 브라우져 마우스 이벤트 값
                 if (event.wheelDelta) {
                     delta = event.wheelDelta / 120;
@@ -51,14 +50,6 @@
                 } else {
                     console.log('down');
                 }
-
-
-
-                // if {}{
-
-                // }
-
-
 
 
             })
