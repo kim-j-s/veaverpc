@@ -30,25 +30,35 @@
     <script>
         $(function() {
             $('html').on('mousewheel DOMMouseScroll', function(e) {
-                var E = e.originalEvent;
-                delta = 0;
-                console.log(E);
-                //var delta = e.originalEvent.wheelDelta;
-                /*
-                if(delta > 0){
-                    $('.ttt').html('up');
-                } else {
-                    $('.ttt').html('down');
+                e.preventDefault();
+                var delta = 0;
+                console.log(event);
+                if (!event) event = window.event;
+                // firefox를 제외한 브라우져 마우스 이벤트 값
+                if (event.wheelDelta) {
+                    delta = event.wheelDelta / 120;
+                    if (window.opera) delta = -delta;
                 }
-                */
+                // firefox 브라우져 마우스 이벤트 값
+                else if (event.detail)
+                    delta = -event.detail / 3;
 
-                if (E.detail) {
-                    delta = E.detail * -40;
-                    $('.ttt').text(delta + ' up');
+
+                console.log(delta);
+
+                if (delta > 0) {
+                    console.log('up');
                 } else {
-                    delta = E.wheelDelta;
-                    $('.ttt').text(delta + '  down');
-                };
+                    console.log('down');
+                }
+
+
+
+                // if {}{
+
+                // }
+
+
 
 
             })
