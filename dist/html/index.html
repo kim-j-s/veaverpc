@@ -28,49 +28,82 @@
 
 
     <script>
+        var animaion = false;
+
+
         $(function() {
-            var wheelCnt = 0;
-            var animaion = false;
-            $('html').on('mousewheel DOMMouseScroll', function(e) {
-                e.preventDefault();
-                var delta = 0;
-                var wh = $(window).height();
-                // firefox를 제외한 브라우져 마우스 이벤트 값
-                if (event.wheelDelta) {
-                    delta = event.wheelDelta / 120;
-                    if (window.opera) delta = -delta;
-                }
-                // firefox 브라우져 마우스 이벤트 값
-                else if (event.detail)
-                    delta = -event.detail / 3;
+            var elm = $('.content')
+            $(elm).each(function(index) {
+                $(this).on('mousewheel DOMMouseScroll', function(e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    var contLng = $('.content').length;
 
+                    //console.log('animaion 1 : ' + animaion);
+                    //console.log('index : ' + index);
 
-                console.log(delta, wheelCnt);
-
-
-                if (delta > 0) {
-                    console.log('up');
                     if (animaion == false) {
                         animaion = true;
-                        wheelCnt--;
-                        wheelAnimate();
-                    }
 
-                } else {
-                    console.log('down');
-                    if (animaion == false) {
-                        animaion = true;
-                        wheelCnt++;
-                        wheelAnimate();
+                        //console.log('animaion 2 : ' + animaion);
+                        //console.log('animaion  :  : ' + animaion);
+
+                        // firefox를 제외한 브라우져 마우스 이벤트 값
+                        if (event.wheelDelta) {
+                            delta = event.wheelDelta / 120;
+                            if (window.opera) delta = -delta;
+                        }
+                        // firefox 브라우져 마우스 이벤트 값
+                        else if (event.detail)
+                            delta = -event.detail / 3;
+
+                        // up
+                        if (delta > 0) {
+                            if (index > 0) {
+                                console.log('상단으로 이동');
+                                wheelAnimate(index - 2);
+                            } else {
+                                console.log('up 최상단 도달 시');
+                                animaion = false;
+                            }
+                        }
+                        // down
+                        else if (delta < 0) {
+                            if ((index + 1) < contLng) {
+                                console.log('down 1 내려간다 : ' + (index + 1), contLng);
+                                wheelAnimate(index);
+                            } else {
+                                console.log('down 2 : ' + (index + 1));
+                                animaion = false;
+                            }
+                        }
+
                     }
-                }
+                })
             })
+
+            var navList = $('.nav-list').find('a');
+            $(navList).on('click', function(e) {
+                e.preventDefault();
+                var idx = $(this).closest('li').index();
+
+                // animate쪽으로 연동 필요
+                $(this).closest('.nav-list').find('a').removeClass('on');
+                $(this).addClass('on');
+                // animate쪽으로 연동 필요
+
+
+                wheelAnimate(idx);
+            })
+
         })
 
 
-        function wheelAnimate() {
+        function wheelAnimate(index) {
+            //console.log('iiiiiiii : ' + index);
+            var wh = $(window).height();
             $('html, body').stop().animate({
-                scrollTop: (wheelCnt * wh) + 'px',
+                scrollTop: (index + 1) * wh + 'px',
             }, 500, function() {
                 animaion = false;
             })
@@ -216,27 +249,83 @@
     <!-- 컨텐츠 영역 -->
     <section class="content ty1">
         content ty1
-        <span class="rnd-bg"></span>
+        <span class="rnd-bg ty1"></span>
     </section>
+
     <section class="content ty2">
-        content ty2
-        <span class="rnd-bg"></span>
+        <div class="in-cont">
+            <div class="cont-center">
+                <h2 class="tit-h2">
+                    <small><span class="rnd-d ty2">헬스마이닝</span></small>
+                    건강에 대한 <strong>모든 궁금증과 해답을 모았다</strong>
+                </h2>
+                <p class="desc">
+                    전문의가 직접 설명해주는 건강 정보!<br> 신 개념 헬스케어 플랫폼 헬스마이닝
+                </p>
+                <ul class="mining-list ani-flow">
+                    <li class="ty1">
+                        <dl class="mining-list-cont">
+                            <dt>AI 헬스Q</dt>
+                            <dd>궁금한 질병을 물어보면<br> AI가 바로 알려주는</dd>
+                        </dl>
+                    </li>
+                    <li class="ty2">
+                        <dl class="mining-list-cont">
+                            <dt>건강 365</dt>
+                            <dd>건강검진은 1년에 1번?<br> 매일 하는 건강 체크 길잡이!</dd>
+                        </dl>
+                    </li>
+                    <li class="ty3">
+                        <dl class="mining-list-cont">
+                            <dt>예방접종 관리</dt>
+                            <dd>엄마 수첩은 안녕~<br> 우리아이 예방접종 알람!</dd>
+                        </dl>
+                    </li>
+                    <li class="ty4">
+                        <dl class="mining-list-cont">
+                            <dt>맞춤형 건강 정보</dt>
+                            <dd>내가 질문하면,<br> 전문의가 직접 답해준다??</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <span class="rnd-bg ty2"></span>
     </section>
+
     <section class="content ty3">
-        content ty3
-        <span class="rnd-bg"></span>
+        <div class="in-cont">
+            <div class="cont-center">
+                <h2 class="tit-h2 white">
+                    <small><span class="rnd-d ty3">AI헬스Q</span></small>
+                    내 손안에 의사 선생님 <strong>병원가기전에 AI헬스Q에 물어보세요!</strong>
+                </h2>
+                <p class="desc white">
+                    헬스마이닝의 AI 솔루션과, 전문의 선생님들이<br> 직접 제작에 참여한 전문 의학 정보를 제공합니다.
+                </p>
+            </div>
+        </div>
+        <span class="rnd-bg ty1"></span>
     </section>
+
     <section class="content ty4">
         content ty4
-        <span class="rnd-bg"></span>
+        <span class="rnd-bg ty3"></span>
     </section>
+
     <section class="content ty5">
-        content ty5
-        <span class="rnd-bg"></span>
+        content ty5 f6f6f6
+        <span class="rnd-bg ty1"></span>
     </section>
+
     <section class="content ty6">
         content ty6
-        <span class="rnd-bg"></span>
+        <span class="rnd-bg ty1"></span>
+    </section>
+
+    <section class="content ty7">
+        content ty7
+        <span class="rnd-bg ty5"></span>
     </section>
     <!-- //컨텐츠 영역 -->
 </body>
