@@ -5,23 +5,21 @@
 <script>
 var animaion = false;
 
-
 $(function(){
-    var elm = $('.content')
-    $(elm).each(function(index){
+    //var elm = $('.content');
+    $('.content').each(function(index){
         $(this).on('mousewheel DOMMouseScroll', function(e){
             e.preventDefault();
             var delta = 0;
             var contLng = $('.content').length;
+
+            $('.nav-list').find('a').blur();
 
             //console.log('animaion 1 : ' + animaion);
             //console.log('index : ' + index);
 
             if (animaion == false) {
                 animaion = true;
-
-                //console.log('animaion 2 : ' + animaion);
-                //console.log('animaion  :  : ' + animaion);
             
                 // firefox를 제외한 브라우져 마우스 이벤트 값
                 if (event.wheelDelta) {
@@ -57,21 +55,23 @@ $(function(){
         })
     })
 
-    var navList = $('.nav-list').find('a');
-    $(navList).on('click', function(e){
-        e.preventDefault();
-        var idx = $(this).closest('li').index();
-
-        // animate쪽으로 연동 필요
-        $(this).closest('.nav-list').find('a').removeClass('on');
-        $(this).addClass('on');
-        // animate쪽으로 연동 필요
-
-
-        wheelAnimate(idx);
-    })
+    // nav 이벤트
+    navEvent();
 
 })
+
+
+// nav 이벤트
+function navEvent() {
+    console.log('xcvxcvxc');
+    var $navList = $('.nav-list').find('a');
+    $navList.on('click', function(e){
+        e.preventDefault();
+        var idx = $(this).closest('li').index();
+        console.log(idx);
+        wheelAnimate(idx);
+    })
+}
 
 
 function wheelAnimate(index){
@@ -82,6 +82,13 @@ function wheelAnimate(index){
     }, 500, function(){
         animaion = false;
     })
+
+    if (index < 0) {
+        $('.nav-list').find('a').removeClass('on');
+    } else {
+        $('.nav-list').find('a').removeClass('on');
+        $('.nav-list').find('a').eq(index).addClass('on');
+    }
 }
 
 
