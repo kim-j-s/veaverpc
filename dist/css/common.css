@@ -7,6 +7,16 @@
 /* // header */
 
 
+/* common */
+.color01{
+    color: #056bff !important;
+}
+.color02{
+    color: #fff !important;
+}
+
+/* // common */
+
 
 /* content */
 
@@ -33,7 +43,7 @@
         background: #056bff;
     }
     .content.ty4{
-        background: url(https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274__340.jpg) no-repeat center center / 100% 100%;
+        
     }
     .content.ty5{
         background: url(https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-blue-light-stage-background-material-backgroundannual-meeting-stageconference-image_71339.jpg) no-repeat center center / 100% 100%;
@@ -85,27 +95,25 @@
 
 
     /* round button */
-    .rnd-d{
-        display: inline-block;
-        padding: 0 17px;
-        font-size: 16px;
-        line-height: 33px;
-        border-radius: 25px;
-    }
-    .rnd-d.ty1{
-        color: #fff;
-        background: #056bff;
-    }
-    .rnd-d.ty2{
-        color: #056bff;
-        background: #edf4ff;
-    }
-    .rnd-d.ty3{
-        color: #056bff;
-        background: #fff;
-    }
-
-    
+        .rnd-d{
+            display: inline-block;
+            padding: 0 17px;
+            font-size: 16px;
+            line-height: 33px;
+            border-radius: 25px;
+        }
+        .rnd-d.ty1{
+            color: #fff;
+            background: #056bff;
+        }
+        .rnd-d.ty2{
+            color: #056bff;
+            background: #edf4ff;
+        }
+        .rnd-d.ty3{
+            color: #056bff;
+            background: #fff;
+        }    
     /* // round button */
 
 
@@ -114,8 +122,8 @@
         line-height: 66px;
         text-align: center;
     }
-    .tit-h2.white{
-        color: #fff;
+    .tit-h2.left{
+        text-align: left;
     }
     .tit-h2 small{
         display: block;
@@ -124,6 +132,10 @@
     }
     .tit-h2 strong{
         display: block;
+        font-weight: 700;
+        font-size: 45px;
+    }
+    .tit-h2 strong > span{
         font-weight: 700;
         font-size: 45px;
     }
@@ -136,9 +148,7 @@
         line-height: 36px;
         text-align: center;
     }
-    .desc.white{
-        color: #fff;
-    }
+   
 
 
     .cont-center{
@@ -146,6 +156,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        white-space: nowrap;
     }
     .cont-center > *{
         transition: .5s;
@@ -158,7 +169,7 @@
         margin-top: 110px;
         font-size: 0;
         text-align: center;
-        white-space: nowrap;
+        /*white-space: nowrap;*/
     }
     .mining-list > li{
         display: inline-block;
