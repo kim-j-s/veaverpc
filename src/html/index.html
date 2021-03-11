@@ -1,98 +1,6 @@
 @@include('head.html')
 <body>
 
-
-<script>
-var animaion = false;
-
-$(function(){
-    //var elm = $('.content');
-    $('.content').each(function(index){
-        $(this).on('mousewheel DOMMouseScroll', function(e){
-            e.preventDefault();
-            var delta = 0;
-            var contLng = $('.content').length;
-
-            $('.nav-list').find('a').blur();
-
-            //console.log('animaion 1 : ' + animaion);
-            //console.log('index : ' + index);
-
-            if (animaion == false) {
-                animaion = true;
-            
-                // firefox를 제외한 브라우져 마우스 이벤트 값
-                if (event.wheelDelta) {
-                    delta = event.wheelDelta / 120;
-                    if (window.opera) delta = -delta;
-                } 
-                // firefox 브라우져 마우스 이벤트 값
-                else if (event.detail)
-                    delta = -event.detail / 3;
-
-                // up
-                if (delta > 0) {
-                    if ( index > 0) {
-                        console.log('상단으로 이동');
-                        wheelAnimate(index - 2);
-                    } else {
-                        console.log('up 최상단 도달 시');
-                        animaion = false;
-                    }
-                } 
-                // down
-                else if (delta < 0) {
-                    if ( (index + 1) < contLng) {
-                        console.log('down 1 내려간다 : ' + (index + 1), contLng);
-                        wheelAnimate(index);
-                    } else {
-                        console.log('down 2 : ' + (index + 1));
-                        animaion = false;
-                    }
-                }
-
-            }
-        })
-    })
-
-    // nav 이벤트
-    navEvent();
-
-})
-
-// nav 이벤트
-function navEvent() {
-    console.log('xcvxcvxc');
-    var $navList = $('.nav-list').find('a');
-    $navList.on('click', function(e){
-        e.preventDefault();
-        var idx = $(this).closest('li').index();
-        console.log(idx);
-        wheelAnimate(idx);
-    })
-}
-
-
-function wheelAnimate(index){
-    //console.log('iiiiiiii : ' + index);
-    var wh = $(window).height();
-    $('html, body').stop().animate({
-        scrollTop: (index + 1) * wh + 'px',
-    }, 500, function(){
-        animaion = false;
-    })
-
-    if (index < 0) {
-        $('.nav-list').find('a').removeClass('on');
-    } else {
-        $('.nav-list').find('a').removeClass('on');
-        $('.nav-list').find('a').eq(index).addClass('on');
-    }
-}
-
-</script>       
-
-
 <style>
 
 html{
@@ -267,7 +175,7 @@ nav{
         <span class="rnd-bg ty2"></span>
     </section>
 
-    <section class="content ty3">
+    <section class="content ty3 chat-in">
         <div class="in-cont">
             <div class="cont-center">
                 <h2 class="tit-h2 color02">
@@ -307,7 +215,8 @@ nav{
     margin-top: 40px;
 }
 .chat-list > li{
-    display: none;
+    position: relative;
+    opacity: 0;
 }
 .chat-list > li > .txt{
     display: inline-block;
@@ -316,9 +225,15 @@ nav{
     border-radius: 10px;
     background: #ebeff3;
     box-shadow: 0 2px 5px 0 rgba(117, 120, 125, 0.19);
+    opacity: 0;
 }
 .chat-list > li + li{
     margin-top: 30px;
+}
+.chat-list > .chat-left .spin-ele{
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .chat-list > .chat-right{
     text-align: right;
@@ -328,6 +243,55 @@ nav{
     text-align: left;
     background: #056bff;
     box-shadow: 0 2px 5px 0 rgba(117, 120, 125, 0.19);
+}
+.chat-list > .chat-right .spin-ele{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+.spin-ele {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 25px;
+    opacity: 1;
+    border: 1px solid #ebeff3;
+}
+.spinner {
+    display: block;
+    margin: 0;
+    width: 40px;
+    text-align: center;
+}
+.spinner > span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    background: rgba(0,0,0,1);
+}
+.spinner > span + span{
+    margin-left: 5px;
+}
+.spinner .bounce1 {
+    animation-delay: -0.32s;
+}
+.spinner .bounce2 {
+    animation-delay: -0.16s;
+}
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1.0);
+    }
 }
 </style>
 
@@ -346,125 +310,6 @@ nav{
                         <img src="../img/img-mockup-02.png" alt="">
                     </div>
                 </div>
-
-
-
-<script>
-$(function(){
-
-    var chatMessages = [
-        {
-            //name: "ms1",
-            msg: "나의 건강 기록을 한눈에 볼 수 있을까?",
-            delay: 10,
-            align: "",
-        },
-        {
-            //name: "ms2",
-            msg: "건강365에서 건강보험공단에 등록된<br> 나의 건강 Data를 정리해 드립니다.",
-            delay: 600,
-            align: "chat-right",
-        },
-        {
-            //name: "ms3",
-            msg: "매일매일 스스로 건강관리는 어떻게 하나요?",
-            delay: 500,
-            align: "left",
-        },
-        {
-            //name: "ms4",
-            msg: "주기적인 관리가 필요한 건강 데이터를<br> 건강365에서 기록하며 관리하세요!",
-            delay: 500,
-            align: "chat-right",
-        }
-    ];
-
-
-
-var chatDelay = 0;
-
-function onRowAdded() {
-  $('.chat-container').animate({
-    scrollTop: $('.chat-container').prop('scrollHeight')
-  });
-};
-
-//var scroll = true;
-
-/*
-$(window).scroll(function(){
-  if(scroll)
-  {
-*/
-    $.each(chatMessages, function(index, obj) {
-      chatDelay = chatDelay + 1000;
-      chatDelay2 = chatDelay + obj.delay;
-      chatDelay3 = chatDelay2 + 10;
-      scrollDelay = chatDelay;
-      chatTimeString = " ";
-      msgname = "." + obj.name;
-      //msginner = ".messageinner-" + obj.name;
-      spinner = ".sp-" + obj.name;
-      /*
-      if (obj.showTime == true) {
-        chatTimeString = "<span class='message-time'>" + obj.time + "</span>";
-      }
-      */
-
-      /*
-
-      $(".chat-list").append("<li class=" + obj.align + "' hidden><div class='sp-" + obj.name + "'><span class='spinme-" + obj.align + "'><div class='spinner'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div></span></div><div class='messageinner-" + obj.name + "' hidden><span class='message-text'>" + obj.msg + "</span>" + chatTimeString + "</div></li>");
-      */
-
-        $(".chat-list").append(
-            "<li class=" + obj.align + ">" +
-                "<span class='txt'>" + obj.msg + "</span>" +
-                "<span class='spinme-" + obj.align + "'>" +
-                    "<span class='spinner'>" + 
-                        "<span class='bounce1'></span>" +
-                        "<span class='bounce2'></span>" +
-                        "<span class='bounce3'></span>" +
-                    "</span>" + 
-                "</span>" +
-            "</li>"
-        );
-
-      
-
-      $(msgname).delay(chatDelay).fadeIn();
-      $(spinner).delay(chatDelay2).hide(1);
-      //$(msginner).delay(chatDelay3).fadeIn();
-      $('.chat-list > li').eq(index).delay(chatDelay3).fadeIn();
-      //setTimeout(onRowAdded, chatDelay);
-      //setTimeout(onRowAdded, chatDelay3);
-      chatDelay = chatDelay3;
-    });
-
-/*
-  }
-  
-  scroll = false;
-});
-*/
-
-
-
-/*
-function 으로 만들어서 사용
-도달 시 class 부여 / 재사용 방지
-if !hasClass
-*/
-
-
-
-
-
-})
-</script>
-
-
-
-
             </div>
         </div>
         <span class="rnd-bg ty3"></span>
