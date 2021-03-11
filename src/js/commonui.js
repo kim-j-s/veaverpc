@@ -1,18 +1,20 @@
 $(function(){
 
-	//var elm = $('.content');
+
+    // 휠 이벤트
     $('.content').each(function(index){
         $(this).on('mousewheel DOMMouseScroll', function(e){
+
             e.preventDefault();
             var delta = 0;
             var contLng = $('.content').length;
-
             $('.nav-list').find('a').blur();
 
-            //console.log('animaion 1 : ' + animaion);
-            //console.log('index : ' + index);
-
-            if (animaion == false) {
+            // if (animaion == false) {
+            if ( !$('html').is(':animated') && animaion == false) {
+                var bt = $('html').scrollTop();
+                console.log('scrollTop : ' + bt);
+                console.log('active : ' + animaion);
                 animaion = true;
             
                 // firefox를 제외한 브라우져 마우스 이벤트 값
@@ -44,14 +46,12 @@ $(function(){
                         animaion = false;
                     }
                 }
-
             }
         })
     })
 
     // nav 이벤트
     navEvent();
-
 
 	//ready
 });
@@ -63,25 +63,33 @@ var animaion = false;
 
 // nav 이벤트
 function navEvent() {
-    console.log('xcvxcvxc');
     var $navList = $('.nav-list').find('a');
     $navList.on('click', function(e){
         e.preventDefault();
         var idx = $(this).closest('li').index();
-        console.log(idx);
         wheelAnimate(idx);
     })
 }
 
+
 // 페이지 휠 이동
 function wheelAnimate(index){
-    //console.log('iiiiiiii : ' + index);
+    console.log('ani : ' + index);
     var wh = $(window).height();
-    $('html, body').stop().animate({
+    /*
+    $('html').stop().animate({
+        scrollTop: (index + 1) * wh + 'px',
+    }, 500, function(){
+        setTimeout(function(){
+            animaion = false;
+        }, 500)
+    })
+    */
+
+    $('html').stop().animate({
         scrollTop: (index + 1) * wh + 'px',
     }, 500, function(){
         animaion = false;
-        console.log('index : ' + index);
     })
 
     if (index < 0) {
@@ -91,14 +99,28 @@ function wheelAnimate(index){
         $('.nav-list').find('a').eq(index).addClass('on');
     }
 
-    if ( $('.content').eq(index).hasClass('chat-in') ) {
+    if ( !$('.content').eq(index + 1).hasClass('on') ) {
+        $('.content').eq(index + 1).addClass('on');
+    }
+
+    /* 쳇 이벤트 작동
+    if ( $('.content').eq(index + 1).hasClass('chat-in') && !$('.chat-in').hasClass('active') ) {
+    	$('.chat-in').addClass('active');
 		ChatList();
     }
+    */
 }
 
 
 
-//ChatList();
+
+var word = []
+
+
+
+
+
+
 
 
 // chat list
@@ -112,22 +134,23 @@ var chatMessages = [
     {
         name: "msg2",
         msg: "건강365에서 건강보험공단에 등록된<br> 나의 건강 Data를 정리해 드립니다.",
-        delay: 1500,
+        delay: 11200,
         align: "chat-right",
     },
     {
         name: "msg3",
         msg: "매일매일 스스로 건강관리는 어떻게 하나요?",
-        delay: 1500,
+        delay: 10,
         align: "chat-left",
     },
     {
         name: "msg4",
         msg: "주기적인 관리가 필요한 건강 데이터를<br> 건강365에서 기록하며 관리하세요!",
-        delay: 1500,
+        delay: 11200,
         align: "chat-right",
     }
 ];
+
 
 function ChatList() {
     var chatDelay = 0;
@@ -142,14 +165,12 @@ function ChatList() {
         $(".chat-list").append(
             "<li class=" + obj.align + ">" +
                 "<span class='txt'>" + obj.msg + "</span>" +
-                "<span class='sp-" + obj.name + "'>" +
-                    "<span class='spin-ele'>" +
-                        "<span class='spinner'>" + 
-                            "<span class='bounce1'></span>" +
-                            "<span class='bounce2'></span>" +
-                            "<span class='bounce3'></span>" +
-                        "</span>" + 
-                    "</span>" +
+               	"<span class='spin-ele sp-" + obj.name +  "'>" +
+                    "<span class='spinner'>" + 
+                        "<span class='bounce1'></span>" +
+                        "<span class='bounce2'></span>" +
+                        "<span class='bounce3'></span>" +
+                    "</span>" + 
                 "</span>" +
             "</li>"
         );
