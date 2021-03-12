@@ -1,65 +1,78 @@
-$(function(){
+// var animaion = false;
 
+$(function(){
 
     // 휠 이벤트
     $('.content').each(function(index){
-        $(this).on('mousewheel DOMMouseScroll', function(e){
+        //$(this).on('mousewheel DOMMouseScroll', function(e){
 
+        $(this).on('wheel', function(e){
             e.preventDefault();
-            var delta = 0;
-            var contLng = $('.content').length;
-            $('.nav-list').find('a').blur();
 
-            // if (animaion == false) {
-            if ( !$('html').is(':animated') && animaion == false) {
-                var bt = $('html').scrollTop();
-                console.log('scrollTop : ' + bt);
-                console.log('active : ' + animaion);
+            console.log('---------------------');
+            console.log('진입 before : ' + animaion);            
+
+            if (animaion === true) {
+                return false;
+            }
+
+            console.log('---------------------');
+            console.log('시작 before : ' + animaion);
+
+            if (animaion === false) {
                 animaion = true;
-            
-                // firefox를 제외한 브라우져 마우스 이벤트 값
-                if (event.wheelDelta) {
-                    delta = event.wheelDelta / 120;
-                    if (window.opera) delta = -delta;
-                } 
-                // firefox 브라우져 마우스 이벤트 값
-                else if (event.detail)
-                    delta = -event.detail / 3;
-
-                // up
-                if (delta > 0) {
-                    if ( index > 0) {
-                        console.log('상단으로 이동');
-                        wheelAnimate(index - 2);
-                    } else {
-                        console.log('up 최상단 도달 시');
-                        animaion = false;
-                    }
-                } 
-                // down
-                else if (delta < 0) {
-                    if ( (index + 1) < contLng) {
-                        console.log('down 1 내려간다 : ' + (index + 1), contLng);
-                        wheelAnimate(index);
-                    } else {
-                        console.log('down 2 : ' + (index + 1));
-                        animaion = false;
-                    }
-                }
+                console.log('시작 : ' + animaion);
+                
+                event = e.originalEvent.deltaY;
+                wheel(index, event);
+            } else {
+                return false;
             }
         })
+        
     })
 
     // nav 이벤트
     navEvent();
+
+    $('.logo > a').on('click', function(){
+        var idx = -1;
+        wheelAnimate(idx);     
+    })
 
 	//ready
 });
 
 
 
-var animaion = false;
+function wheel(index, event) {
+    var delta = 0;
+    var contLng = $('.content').length;
+    $('.nav-list').find('a').blur();
+    if (event < 0) {
+        // wheeled up
+        if ( index > 0) {
+            console.log('상단으로 이동');
+            wheelAnimate(index - 2);
+        } else {
+            console.log('up 최상단 도달 시');
+            animaion = false;
+        }
+    }
+    else {
+        // wheeled down
+        if ( (index + 1) < contLng) {
+            console.log('down 1 내려간다 : ' + (index + 1), contLng);
+            wheelAnimate(index);
+        } else {
+            console.log('down 2 : ' + (index + 1));
+            animaion = false;
+        }
+    }
+}
 
+
+var animaion = false;
 
 // nav 이벤트
 function navEvent() {
@@ -74,23 +87,15 @@ function navEvent() {
 
 // 페이지 휠 이동
 function wheelAnimate(index){
-    console.log('ani : ' + index);
+    console.log('animatie');
     var wh = $(window).height();
-    /*
-    $('html').stop().animate({
-        scrollTop: (index + 1) * wh + 'px',
-    }, 500, function(){
-        setTimeout(function(){
-            animaion = false;
-        }, 500)
-    })
-    */
-
-    $('html').stop().animate({
+    $('html').stop(true, true).animate({
         scrollTop: (index + 1) * wh + 'px',
     }, 500, function(){
         animaion = false;
-    })
+        console.log('rst = ' + animaion);
+        return animaion;
+    })    
 
     if (index < 0) {
         $('.nav-list').find('a').removeClass('on');
@@ -103,24 +108,17 @@ function wheelAnimate(index){
         $('.content').eq(index + 1).addClass('on');
     }
 
-    /* 쳇 이벤트 작동
+    // 쳇 이벤트 작동
     if ( $('.content').eq(index + 1).hasClass('chat-in') && !$('.chat-in').hasClass('active') ) {
     	$('.chat-in').addClass('active');
 		ChatList();
     }
-    */
 }
 
 
 
 
 var word = []
-
-
-
-
-
-
 
 
 // chat list

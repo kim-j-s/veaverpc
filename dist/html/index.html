@@ -29,10 +29,10 @@
     <!-- 헤더영역 -->
     <header>
         <div class="h-inner">
-            <h1 class="logo">HealthMining</h1>
+            <h1 class="logo"><a href="#">HealthMining</a></h1>
             <nav>
                 <ul class="nav-list">
-                    <li><a href="#" class="on" title="헬스마이닝">헬스마이닝</a></li>
+                    <li><a href="#" title="헬스마이닝">헬스마이닝</a></li>
                     <li><a href="#" title="AI헬스Q">AI헬스Q</a></li>
                     <li><a href="#" title="건강365">건강365</a></li>
                     <li><a href="#" title="예방접종수첩">예방접종수첩</a></li>
@@ -173,11 +173,105 @@
     <!-- // 맞춤 건강 정보 -->
 
     <section class="content ty7">
-        병원가기전
-        헬스마이닝
-        <span class="rnd-bg ty5"></span>
+        <div class="ins-cont">
+            <div class="cont-center">
+                <h2 class="tit-h2">
+                    병원가기전 <strong class="color01">헬스마이닝</strong>
+                </h2>
+                <div class="store-btns center">
+                    <a href="" class="link-store"><span class="google-play">Google Play</span></a>
+                    <a href="" class="link-store"><span class="app-store">App Store</span></a>
+                    <a href="" class="link-store black"><span class="google-play">Google Play</span></a>
+                    <a href="" class="link-store black"><span class="app-store">App Store</span></a>
+                </div>
+            </div>
+            <span class="rnd-bg ty5"></span>
+        </div>
+
+        <style>
+            .content.ty7 {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .ins-cont {
+                position: relative;
+                flex: 1 1 100%;
+            }
+
+            .store-btns {
+                font-size: 0;
+            }
+
+            .store-btns.center {
+                text-align: center;
+            }
+
+            .tit-h2+.store-btns {
+                margin-top: 50px;
+            }
+
+            .link-store {
+                display: inline-block;
+                width: 200px;
+                padding: 14px 0;
+                border: 1px solid #fff;
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            .link-store.black {
+                border: 1px solid #000;
+                background: #000;
+            }
+
+            .link-store+.link-store {
+                margin-left: 20px;
+            }
+
+            .link-store>span {
+                display: inline-block;
+                padding-left: 35px;
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 30px;
+                color: #fff;
+            }
+
+            .link-store.black>span {
+                color: #fff;
+            }
+
+            .google-play {
+                background: url(../img/ic-aos.png) no-repeat left center;
+            }
+
+            .app-store {
+                background: url(../img/ic-ios.png) no-repeat left center;
+            }
+        </style>
+
+        <footer>
+            <div class="footer-in-cont">
+                <ul class="dash-list">
+                    <li><a href="">이용약관</a></li>
+                    <li><a href="">위치기반서비스이용약관</a></li>
+                    <li><a href="">개인정보처리방침</a></li>
+                </ul>
+                <ul class="dash-list">
+                    <li><span>서울특별시 영등포구 은행로 3익스콘벤처타워 9층 대표자 : 조정일</span></li>
+                    <li><span>사업자등록번호 119 – 81 - 46288</span></li>
+                </ul>
+                <p class="copyright">
+                    Copyright © Veaver, Inc. All rights reserved.
+                </p>
+            </div>
+        </footer>
     </section>
     <!-- //컨텐츠 영역 -->
 </body>
+
+
+
 
 </html>

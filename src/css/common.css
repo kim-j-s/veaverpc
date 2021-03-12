@@ -45,6 +45,8 @@ html{
         position: absolute;
         top: 40px;
         left: 0;
+    }
+    .h-inner .logo > a{
         display: inline-block;
         width: 181px;
         height: 30px;
@@ -436,6 +438,59 @@ html{
             }
         }
     /* // 건강관리 365 */
+
+
+
+
+    /* footer */
+
+        footer{
+            flex: none;
+            padding: 70px 0; 
+            background: #000;
+        }
+        footer .footer-in-cont{
+            width: 1078px;
+            margin: 0 auto;
+        }
+        .dash-list{
+            font-size: 0;
+        }
+        .dash-list + .dash-list{
+            margin-top: 5px;
+        }
+        .dash-list > li{
+            position: relative;
+            display: inline-block;
+        }
+        .dash-list > li + li{
+            margin-left: 10px;
+            padding-left: 11px;
+        }
+        .dash-list > li + li:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 10px;
+            border-left: 1px solid #fff;
+            transform: translateY(-50%);
+            opacity: 0.3;
+        }
+        .dash-list > li > *{
+            display: block;
+            font-size: 17px;
+            line-height: 25px;
+            color: #909295;
+        }
+        .copyright{
+            margin-top: 50px;
+            font-size: 16px;
+            line-height: 24px;
+            color: #74777b;
+        }
+
+    /* // footer */
 
 
 /* // content */
