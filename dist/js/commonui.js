@@ -37,7 +37,7 @@ $(function(){
 
     $('.logo > a').on('click', function(){
         var idx = -1;
-        wheelAnimate(idx);     
+        wheelAnimate(idx);
     })
 
 
@@ -55,7 +55,7 @@ $(function(){
 });
 
 
-
+// 휠 이벤트
 function wheel(index, event) {
     var delta = 0;
     var contLng = $('.content').length;
@@ -133,7 +133,34 @@ function wheelAnimate(index){
 
 
 
-var word = []
+//var word = "나의 건강 기록을 한눈에 볼 수 있을까?";
+var txt = '';
+var word = [
+    {
+        delay: 300,
+        word : "나의 건강 기록을 한눈에 볼 수 있을까?",
+    },
+    {
+        delay: 300,
+        word : "건강365에서 건강보험공단에 등록된<br> 나의 건강 Data를 정리해 드립니다.",
+    }
+]
+
+
+
+for(var i = 0; i < word.length; i++) {
+    (function(i){
+        setTimeout(function(){
+            console.log('print : ' + i, word.length);
+            console.log('print word: ' + word[i]);
+            txt = txt + word[i];
+            $('.w-txt01').html(txt);
+            if ( i == (word.length - 1)) {console.log('죵료');}
+        }, 100 * i)
+    })(i);
+}
+
+
 
 
 // chat list
@@ -147,7 +174,7 @@ var chatMessages = [
     {
         name: "msg2",
         msg: "건강365에서 건강보험공단에 등록된<br> 나의 건강 Data를 정리해 드립니다.",
-        delay: 11200,
+        delay: 1200,
         align: "chat-right",
     },
     {
@@ -159,7 +186,7 @@ var chatMessages = [
     {
         name: "msg4",
         msg: "주기적인 관리가 필요한 건강 데이터를<br> 건강365에서 기록하며 관리하세요!",
-        delay: 11200,
+        delay: 1200,
         align: "chat-right",
     }
 ];
