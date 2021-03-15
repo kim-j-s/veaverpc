@@ -40,6 +40,17 @@ $(function(){
         wheelAnimate(idx);     
     })
 
+
+    // top swiper
+    var topSlide = new Swiper('.top-slide', {
+        observer: true,
+        observeParents: true,
+        speed: 500,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+
 	//ready
 });
 
@@ -89,11 +100,13 @@ function navEvent() {
 function wheelAnimate(index){
     console.log('animatie');
     var wh = $(window).height();
+    $('.content').removeClass('on');
     $('html').stop(true, true).animate({
         scrollTop: (index + 1) * wh + 'px',
     }, 500, function(){
         animaion = false;
         console.log('rst = ' + animaion);
+        $('.content').eq(index + 1).addClass('on');
         return animaion;
     })    
 
@@ -104,9 +117,11 @@ function wheelAnimate(index){
         $('.nav-list').find('a').eq(index).addClass('on');
     }
 
+    /*
     if ( !$('.content').eq(index + 1).hasClass('on') ) {
         $('.content').eq(index + 1).addClass('on');
     }
+    */
 
     // 쳇 이벤트 작동
     if ( $('.content').eq(index + 1).hasClass('chat-in') && !$('.chat-in').hasClass('active') ) {
