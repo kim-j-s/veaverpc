@@ -43,7 +43,6 @@ $(function(){
         wheelAnimate(idx);
     })
 
-
     // top swiper
     var topSlide = new Swiper('.top-slide', {
         observer: true,
@@ -66,20 +65,20 @@ function wheel(index, event) {
     if (event < 0) {
         // wheeled up
         if ( index > 0) {
-            console.log('상단으로 이동');
+            //console.log('상단으로 이동');
             wheelAnimate(index - 2);
         } else {
-            console.log('up 최상단 도달 시');
+            //console.log('up 최상단 도달 시');
             animaion = false;
         }
     }
     else {
         // wheeled down
         if ( (index + 1) < contLng) {
-            console.log('down 1 내려간다 : ' + (index + 1), contLng);
+            //console.log('down 1 내려간다 : ' + (index + 1), contLng);
             wheelAnimate(index);
         } else {
-            console.log('down 2 : ' + (index + 1));
+            //console.log('down 2 : ' + (index + 1));
             animaion = false;
         }
     }
@@ -138,6 +137,7 @@ function wheelAnimate(index){
 
 //var word = "나의 건강 기록을 한눈에 볼 수 있을까?";
 var txt = '';
+/*
 var word = [
     {
         delay: 300,
@@ -148,20 +148,22 @@ var word = [
         word : "건강365에서 건강보험공단에 등록된<br> 나의 건강 Data를 정리해 드립니다.",
     }
 ]
+*/
 
-
-
+/*
+var word = ("나의 건강 기록을 한눈에 볼 수 있을까?");
 for(var i = 0; i < word.length; i++) {
     (function(i){
         setTimeout(function(){
             console.log('print : ' + i, word.length);
             console.log('print word: ' + word[i]);
             txt = txt + word[i];
-            $('.w-txt01').html(txt);
+            $('.ddd').html(txt);
             if ( i == (word.length - 1)) {console.log('죵료');}
-        }, 100 * i)
+        }, 200 * i)
     })(i);
 }
+*/
 
 
 
@@ -242,7 +244,6 @@ function ChatList() {
 function popControl(){
     $('[data-open]').on('click', function(){
         var data = $(this).data('open');
-        console.log(data);
         $("[data-openpop='" + data +  "']").removeClass('out').addClass('active');
     })
 

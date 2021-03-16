@@ -568,6 +568,8 @@
     /* 맞춤형 건강정보 */
 
         .content.ty6{
+            display: flex;
+            flex-direction: column;
             background: #f6f8fb;
         }
 

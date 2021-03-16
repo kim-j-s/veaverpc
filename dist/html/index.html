@@ -198,7 +198,9 @@
                         </h2>
                         <div class="chat-history">
                             <ul class="chat-list">
-                                <li class="w-txt01" style="opacity: 1"></li>
+                                <!-- <li class="chat-left" style="opacity: 1">
+                                    <span class="txt ddd" style="opacity: 1"></span>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
@@ -246,19 +248,212 @@
 
     <!-- 맞춤 건강 정보 -->
     <section class="content ty6">
-        <div class="in-cont">
-            <h2 class="tit-h2">
-                <small><span class="rnd-d ty1">맞춤형 건강 정보</span></small>
-                <strong>전문의가 말해주는 진짜 의료 정보</strong>
-            </h2>
-            <p class="desc color03">
-                전문의가 직접 작성하고, 출연해서 만든 건강 정보<br>
-                질병/건강에 대한 궁금증이 생겼다면, 지금 전문의와 상담해주세요.
-            </p>
+        <div class="ins-cont">
+            <div class="cont-center">
+                <h2 class="tit-h2">
+                    <small><span class="rnd-d ty2">맞춤형 건강 정보</span></small>
+                    <strong>전문의가 말해주는 진짜 의료 정보</strong>
+                </h2>
+                <p class="desc color03">
+                    전문의가 직접 작성하고, 출연해서 만든 건강 정보<br>
+                    질병/건강에 대한 궁금증이 생겼다면, 지금 전문의와 상담해주세요.
+                </p>
+            </div>
+        </div>
+        <div class="card-items-wrap">
+            <div class="card-items">
+                <div class="card-item">
+                    <dl class="card-cont">
+                        <dt>
+                            <span class="qa">Q.</span>
+                            볼거리, 다른 질환과 구분할 수 있나요?
+                        </dt>
+                        <dd>
+                            <span class="qa">A.</span>
+                            볼거리 외에도 침샘의 염증이 생기는 질환은 다양하게 있습니다. 볼이 붓는 것 외에 근육통, 열 등 감기 유사 증상이 동반되고, 음식을 섭취...
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="card-item">
+                    <dl class="card-cont">
+                        <dt>
+                            <span class="qa">Q.</span>
+                            볼거리, 다른 질환과 구분할 수 있나요?
+                        </dt>
+                        <dd>
+                            <span class="qa">A.</span>
+                            볼거리 외에도 침샘의 염증이 생기는 질환은 다양하게 있습니다. 볼이 붓는 것 외에 근육통, 열 등 감기 유사 증상이 동반되고, 음식을 섭취...
+                        </dd>
+                    </dl>
+                </div>
+
+                <!-- d
+                <div class="card-item">
+                    <dl class="card-cont">
+                        <dt>
+                            <span class="qa">Q.</span>
+                            볼거리, 다른 질환과 구분할 수 있나요?
+                        </dt>
+                        <dd>
+                            <span class="qa">A.</span>
+                            볼거리 외에도 침샘의 염증이 생기는 질환은 다양하게 있습니다. 볼이 붓는 것 외에 근육통, 열 등 감기 유사 증상이 동반되고, 음식을 섭취...
+                        </dd>
+                    </dl>
+                </div>
+                 -->
+            </div>
         </div>
         <span class="rnd-bg ty1"></span>
     </section>
     <!-- // 맞춤 건강 정보 -->
+
+
+    <style>
+        .card-items-wrap {
+            position: relative;
+            flex: none;
+            height: 460px;
+        }
+
+        .card-items {
+            position: relative;
+            width: 950px;
+            margin: 0 auto;
+            font-size: 0;
+            text-align: center;
+        }
+
+        .card-item {
+            position: absolute;
+            display: inline-block;
+            width: 270px;
+            background: #fff;
+            border: 2px solid #056bff;
+            border-radius: 15px;
+            box-shadow: 0 2px 30px 0 #cbd6e5;
+        }
+
+
+        .card-item:nth-child(1) {
+            animation: rolling01 6s infinite linear both;
+        }
+
+        .card-item:nth-child(2) {
+            animation: rolling02 6s infinite linear both;
+        }
+
+
+        @keyframes rolling01 {
+            0% {
+                top: 50px;
+                left: 0;
+                z-index: 0;
+                width: 270px;
+                background: #fcfcfd;
+            }
+
+            40% {
+                top: 50px;
+                left: 680px;
+                z-index: 0;
+                width: 270px;
+                background: #fcfcfd;
+            }
+
+            70% {
+                top: 0;
+                left: 310px;
+                z-index: 1;
+                width: 330px;
+                background: #fff;
+            }
+
+            100% {
+                top: 50px;
+                left: 0;
+                z-index: 0;
+                width: 270px;
+                background: #fcfcfd;
+            }
+        }
+
+
+        /**/
+
+        @keyframes rolling02 {
+            0% {
+                top: 0;
+                left: 310px;
+                z-index: 1;
+                width: 330px;
+                background: #fff;
+            }
+
+            40% {
+                top: 50px;
+                left: 0;
+                z-index: 0;
+                width: 270px;
+            }
+
+            70% {
+                top: 50px;
+                left: 680px;
+                z-index: 0;
+                width: 270px;
+            }
+
+            100% {
+                top: 0;
+                left: 310px;
+                z-index: 0;
+                width: 330px;
+            }
+        }
+
+
+
+        .card-cont {
+            text-align: left;
+            padding: 57px 30px;
+            /*border: 2px solid #056bff;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 2px 30px 0 #cbd6e5;*/
+            /*opacity: 0.3;*/
+        }
+
+        .card-cont .qa {
+            display: block;
+            font-family: 'Roboto';
+            font-weight: 700;
+            font-size: 24px;
+            color: #056bff;
+            line-height: 28px;
+        }
+
+        .card-cont>dt {
+            font-weight: 700;
+            font-size: 24px;
+            color: #000;
+            line-height: 36px;
+        }
+
+        .card-cont>dd {
+            margin-top: 32px;
+            line-height: 27px;
+            color: #333;
+            word-wrap: break-word;
+            word-break: keep-all;
+        }
+
+        .card-cont>dd dt {
+            margin-top: 32px;
+        }
+    </style>
+
+
 
     <!-- footer -->
     <section class="content ty7">
