@@ -238,7 +238,7 @@
                 <div class="card-item">
                     <dl class="card-cont">
                         <dt>
-                            <span class="qa">Q.</span>
+                            <span class="qa">Q. 1</span>
                             볼거리, 다른 질환과 구분할 수 있나요?
                         </dt>
                         <dd>
@@ -247,11 +247,10 @@
                         </dd>
                     </dl>
                 </div>
-
                 <div class="card-item">
                     <dl class="card-cont">
                         <dt>
-                            <span class="qa">Q.</span>
+                            <span class="qa">Q. 2</span>
                             볼거리, 다른 질환과 구분할 수 있나요?
                         </dt>
                         <dd>
@@ -260,12 +259,10 @@
                         </dd>
                     </dl>
                 </div>
-
-                <!-- d
                 <div class="card-item">
                     <dl class="card-cont">
                         <dt>
-                            <span class="qa">Q.</span>
+                            <span class="qa">Q. 3</span>
                             볼거리, 다른 질환과 구분할 수 있나요?
                         </dt>
                         <dd>
@@ -274,7 +271,6 @@
                         </dd>
                     </dl>
                 </div>
-                 -->
             </div>
         </div>
         <span class="rnd-bg ty1"></span>
@@ -312,6 +308,9 @@
 .card-item:nth-child(2){
     animation: rolling02 6s infinite linear both;
 }
+.card-item:nth-child(3){
+    animation: rolling03 6s infinite linear both;
+}
 
 
 @keyframes rolling01 {
@@ -325,14 +324,14 @@
     40% {
         top: 50px;
         left: 680px;
-        z-index: 0;
+        z-index: 1;
         width: 270px;
         background: #fcfcfd;
     }
     70% {
         top: 0;
         left: 310px;
-        z-index: 1;
+        z-index: 2;
         width: 330px;
         background: #fff;
     }
@@ -352,17 +351,17 @@
     0% {
         top: 0;
         left: 310px;
-        z-index: 1;
+        z-index: 2;
         width: 330px;
         background: #fff;
     }
-    40% {
+    30% {
         top: 50px;
         left: 0;
         z-index: 0;
         width: 270px;
     }
-    70% {
+    60% {
         top: 50px;
         left: 680px;
         z-index: 0;
@@ -371,11 +370,38 @@
     100% {
         top: 0;
         left: 310px;
-        z-index: 0;
+        z-index: 2;
         width: 330px;
     }
 }
 
+@keyframes rolling03 {
+    0% {
+        top: 50px;
+        left: 680px;
+        z-index: 1;
+        width: 270px;
+    }
+    40% {
+        top: 0;
+        left: 310px;
+        z-index: 2;
+        width: 330px;
+        background: #fff;
+    }
+    70% {
+        top: 50px;
+        left: 0;
+        z-index: 0;
+        width: 270px;
+    }
+    100% {
+        top: 50px;
+        left: 680px;
+        z-index: 1;
+        width: 270px;
+    }
+}
 
 
 .card-cont{
