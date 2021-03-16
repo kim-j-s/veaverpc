@@ -2,6 +2,9 @@
 
 $(function(){
 
+    // 팝업 활성화 / 비활성화
+    popControl();
+
     // 휠 이벤트
     $('.content').each(function(index){
         //$(this).on('mousewheel DOMMouseScroll', function(e){
@@ -226,3 +229,26 @@ function ChatList() {
         chatDelay = chatDelay3;
     });
 }
+
+
+
+
+
+
+
+
+
+// 팝업 활성화 / 비활성화
+function popControl(){
+    $('[data-open]').on('click', function(){
+        var data = $(this).data('open');
+        console.log(data);
+        $("[data-openpop='" + data +  "']").removeClass('out').addClass('active');
+    })
+
+    $('.layer-close').on('click', function(){
+        $(this).closest('.layer-pop').removeClass('active').addClass('out');
+    })
+}
+
+
