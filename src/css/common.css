@@ -2,26 +2,52 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
 
-/* header */
-
-/* // header */
-
-
 /* common */
-.color01{
-    color: #056bff !important;
-}
-.color02{
-    color: #fff !important;
-}
-.color03{
-    color: #666 !important;
-}
 
-html{
-    height: 100%;
-    overflow: hidden;
-}
+    .color01{
+        color: #056bff !important;
+    }
+    .color02{
+        color: #fff !important;
+    }
+    .color03{
+        color: #666 !important;
+    }
+
+    .tit-h2{
+        font-size: 45px;
+        line-height: 66px;
+        text-align: center;
+    }
+    .tit-h2.left{
+        text-align: left;
+    }
+    .tit-h2.right{
+        text-align: right;
+    }
+    .tit-h2 small{
+        display: block;
+        line-height: normal;
+        margin-bottom: 10px;
+    }
+    .tit-h2 strong{
+        display: block;
+        font-weight: 700;
+        font-size: 45px;
+    }
+    .tit-h2 strong > span{
+        font-weight: 700;
+        font-size: 45px;
+    }
+    .tit-h2 + .desc{
+        margin-top: 20px;
+    }
+    .desc{
+        font-weight: 200;
+        font-size: 24px;
+        line-height: 36px;
+        text-align: center;
+    }
 
 /* // common */
 
@@ -145,6 +171,10 @@ html{
         margin: 0 auto;
         height: 100%;
     }
+    .ins-cont{
+        position: relative;
+        flex: 1 1 100%;
+    }
     .cont-center{
         position: absolute;
         top: 50%;
@@ -159,29 +189,6 @@ html{
     .cont-center > *{
         transition: .5s;
     }
-
-    .content.ty1 > .inner{
-        background: url(../img/visual-01.jpg) no-repeat center 0 / cover;
-        background-attachment: fixed;
-    }
-    .content.ty2{
-
-    }
-    .content.ty3{
-        background: #056bff;
-        background-attachment: fixed;
-    }
-    .content.ty4{
-
-    }
-    .content.ty5 > .inner{
-        background: #f1f1f1 url(../img/visual-04.png) no-repeat 0 0 / cover;
-        background-attachment: fixed;
-    }
-    .content.ty6{
-        background: #f6f8fb;
-    }
-
 
     .content .rnd-bg{
         position: absolute;
@@ -221,6 +228,7 @@ html{
 
 
     /* round button */
+
         .rnd-d{
             display: inline-block;
             padding: 0 16px;
@@ -239,48 +247,16 @@ html{
         .rnd-d.ty3{
             color: #056bff;
             background: #fff;
-        }    
+        }
+
     /* // round button */
 
+    /* top content */
 
-    .tit-h2{
-        font-size: 45px;
-        line-height: 66px;
-        text-align: center;
-    }
-    .tit-h2.left{
-        text-align: left;
-    }
-    .tit-h2.right{
-        text-align: right;
-    }
-    .tit-h2 small{
-        display: block;
-        line-height: normal;
-        margin-bottom: 10px;
-    }
-    .tit-h2 strong{
-        display: block;
-        font-weight: 700;
-        font-size: 45px;
-    }
-    .tit-h2 strong > span{
-        font-weight: 700;
-        font-size: 45px;
-    }
-    .tit-h2 + .desc{
-        margin-top: 20px;
-    }
-    .desc{
-        font-weight: 200;
-        font-size: 24px;
-        line-height: 36px;
-        text-align: center;
-    }
-
-
-    /* top */
-    
+        .content.ty1 > .inner{
+            background: url(../img/visual-01.jpg) no-repeat center 0 / cover;
+            background-attachment: fixed;
+        }    
         .top-slide{
             height: 100%;
         }
@@ -301,7 +277,7 @@ html{
             opacity: 1;
         }
 
-    /* // top */
+    /* // top content */
 
     /* 헬스마이닝*/
 
@@ -392,6 +368,7 @@ html{
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            background: #056bff;
         }
         .phone-visual{
             position: relative;
@@ -403,9 +380,6 @@ html{
             bottom: -100%;
             left: 50%;
             display: inline-block;
-            width: 259px;
-            height: 366px;
-            background: url(../img/img-mockup-01.png) no-repeat 0 0;
             transform: translateX(-50%);
             transition: .5s;
         }
@@ -531,6 +505,10 @@ html{
 
     /* 예방접종 수첩 */
 
+        .content.ty5 > .inner{
+            background: #f1f1f1 url(../img/visual-04.png) no-repeat 0 0 / cover;
+            background-attachment: fixed;
+        }
         .up-ani{
             position: relative;
             margin-top: 50px;
@@ -566,6 +544,14 @@ html{
 
     /* // 예방접종 수첩 */
 
+    /* 맞춤형 건강정보 */
+
+        .content.ty6{
+            background: #f6f8fb;
+        }
+
+    /* // 맞춤형 건강정보 */
+
 
     /* footer */
 
@@ -573,9 +559,38 @@ html{
             display: flex;
             flex-direction: column;
         }
-        .ins-cont{
-            position: relative;
-            flex: 1 1 100%;
+        .content.ty7 .wave{
+            position: absolute;
+            display: block;
+            overflow: hidden;
+            bottom: -20px;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 160px;
+            animation: loadingWave infinite;
+            opacity: 0.3;
+        }
+        .content.ty7 .wave.ty1{
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            background: url(../img/loading-line-01.png) repeat-x;
+            background-size: 1790px 160px;
+        }
+        .content.ty7 .wave.ty2{
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            background: url(../img/loading-line-02.png) repeat-x;
+            background-size: 1790px 160px;
+        }
+
+        @keyframes loadingWave {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 1790px 0;
+            }
         }
 
         .store-btns{
@@ -612,6 +627,8 @@ html{
             color: #fff;
         }
         .link-store.black > span{
+            font-family: 'Roboto';
+            font-weight: 700;
             color: #fff;
         }
         .google-play{
