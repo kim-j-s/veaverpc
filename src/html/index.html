@@ -296,13 +296,10 @@
 <script>
 $(function(){
 
-    /*
     $('.item-inner').on('mouseleave', function(){
         console.log('out');
         loopAni();
     })
-    */
-
 
     $('.card-item').on('click', function(){
         var idx = $(this).index();
@@ -315,7 +312,7 @@ $(function(){
     })
 
 // 맞춤형 건강 정보
-//loopAni();
+loopAni();
 
 })
 
@@ -336,7 +333,7 @@ function loopAni() {
             $('.item-inner > .card-item').first().appendTo('.item-inner');
             $('.item-inner').css('left',0);
         })
-    }, 1500)
+    }, 2500)
 }
 
 function rollback() {
@@ -354,8 +351,6 @@ function rollnext() {
 }
 
 </script>
-
-
 
 
 <style>
