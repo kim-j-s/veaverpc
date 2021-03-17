@@ -121,7 +121,7 @@
             display: inline-block;
         }
         .nav-list > li + li{
-            margin-left: 60px;
+            margin-left: 50px;
         }
         .nav-list > li > a{
             position: relative;

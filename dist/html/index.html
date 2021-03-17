@@ -40,7 +40,7 @@
                 </ul>
             </nav>
             <div class="h-util">
-                <button type="button" class="rnd-d ty1" data-open="layer">공동인증서</button>
+                <button type="button" class="rnd-d ty1" data-open="layer">공동인증서 내려받기</button>
             </div>
         </div>
     </header>
@@ -55,7 +55,7 @@
                         <div class="in-cont">
                             <div class="cont-center">
                                 <h2 class="tit-h2 left">
-                                    <strong class="color02">언제, 어디서나<br> 함께 하는 우리집 건강 주치의</strong>
+                                    <strong class="color02">건강에 대한<br> 모든 궁금증과 해답을 모았다!</strong>
                                 </h2>
                                 <div class="store-btns">
                                     <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
@@ -68,7 +68,7 @@
                         <div class="in-cont">
                             <div class="cont-center">
                                 <h2 class="tit-h2 left">
-                                    <strong class="color02">언제, 어디서나<br> 함께 하는 우리집 건강 주치의</strong>
+                                    <strong class="color02">전문의가 직접<br> 설명해주는 건강 정보!</strong>
                                 </h2>
                                 <div class="store-btns">
                                     <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
@@ -251,7 +251,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="card-item active">
+                    <div class="card-item size active">
                         <dl class="card-cont">
                             <dt>
                                 <span class="qa">Q. 2</span>
@@ -348,13 +348,14 @@
             })
 
             var roller = setInterval(function() {
-                $('.card-item').eq(1).removeClass('active');
-                $('.card-item').eq(2).addClass('active');
+                $('.card-item').eq(1).removeClass('size active op');
+                $('.card-item').eq(2).addClass('size op');
                 $('.item-inner').animate({
                     left: '-310px',
                 }, 1000, function() {
                     $('.item-inner > .card-item').first().appendTo('.item-inner');
                     $('.item-inner').css('left', 0);
+                    $('.card-item').eq(1).addClass('active');
                 })
             }, 2500)
         }
@@ -408,7 +409,7 @@
             cursor: pointer;
         }
 
-        .card-item.active {
+        .card-item.size {
             width: 330px;
             margin-top: 0;
             padding: 54px 30px;
@@ -433,11 +434,20 @@
             text-align: left;
             /*padding: 46px 25px;*/
             opacity: 0.14;
+            /*transition: 1s;*/
+        }
+
+        .op .card-cont {
+            opacity: 0.14;
             transition: 1s;
         }
 
+        .size.op .card-cont {
+            opacity: 1;
+        }
+
         .card-cont * {
-            transition: 1s;
+            /*transition: 1s;*/
         }
 
         .card-cont .qa {
@@ -446,36 +456,37 @@
             font-weight: 700;
             font-size: 20px;
             color: #056bff;
-            line-height: 24px;
+            /*line-height: 24px;*/
+            line-height: 28px;
         }
 
         .card-cont>dt {
             font-weight: 500;
             font-size: 18px;
             color: #000;
-            line-height: 27px;
+            /*line-height: 27px;*/
+            line-height: 36px;
             word-wrap: break-word;
             word-break: keep-all;
         }
 
         .card-cont>dd {
-            max-height: 90px;
-            margin-top: 20px;
+            /*max-height: 90px;*/
+            /*margin-top: 20px;*/
+            margin-top: 32px;
             font-size: 15px;
-            line-height: 22px;
+            /*line-height: 22px;*/
+            line-height: 27px;
             color: #333;
             word-wrap: break-word;
             word-break: keep-all;
             overflow: hidden;
         }
 
-        .card-cont>dd dt {
-            margin-top: 32px;
-        }
-
         .active .card-cont {
             /*padding: 54px 30px;*/
             opacity: 1;
+            transition: 1s;
         }
 
         .active .card-cont .qa {
