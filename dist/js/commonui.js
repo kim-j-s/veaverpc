@@ -10,6 +10,7 @@ $(function(){
         //$(this).on('mousewheel DOMMouseScroll', function(e){
 
         $(this).on('wheel', function(e){
+            e.stopPropagation();
             e.preventDefault();
 
             console.log('---------------------');
@@ -24,9 +25,10 @@ $(function(){
 
             if (animaion === false) {
                 animaion = true;
-                console.log('시작 : ' + animaion);
+                //console.log('시작 : ' + animaion);
                 
-                event = e.originalEvent.deltaY;
+                var event = e.originalEvent.deltaY;
+                //console.log('event :' + event);
                 wheel(index, event);
             } else {
                 return false;
@@ -118,12 +120,7 @@ function wheelAnimate(index){
         $('.nav-list').find('a').removeClass('on');
         $('.nav-list').find('a').eq(index).addClass('on');
     }
-
-    /*
-    if ( !$('.content').eq(index + 1).hasClass('on') ) {
-        $('.content').eq(index + 1).addClass('on');
-    }
-    */
+    
 
     // 쳇 이벤트 작동
     if ( $('.content').eq(index + 1).hasClass('chat-in') && !$('.chat-in').hasClass('active') ) {
@@ -131,40 +128,6 @@ function wheelAnimate(index){
 		ChatList();
     }
 }
-
-
-
-
-//var word = "나의 건강 기록을 한눈에 볼 수 있을까?";
-var txt = '';
-/*
-var word = [
-    {
-        delay: 300,
-        word : "나의 건강 기록을 한눈에 볼 수 있을까?",
-    },
-    {
-        delay: 300,
-        word : "건강365에서 건강보험공단에 등록된<br> 나의 건강 Data를 정리해 드립니다.",
-    }
-]
-*/
-
-/*
-var word = ("나의 건강 기록을 한눈에 볼 수 있을까?");
-for(var i = 0; i < word.length; i++) {
-    (function(i){
-        setTimeout(function(){
-            console.log('print : ' + i, word.length);
-            console.log('print word: ' + word[i]);
-            txt = txt + word[i];
-            $('.ddd').html(txt);
-            if ( i == (word.length - 1)) {console.log('죵료');}
-        }, 200 * i)
-    })(i);
-}
-*/
-
 
 
 
