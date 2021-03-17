@@ -451,6 +451,20 @@
 
     /* 건강관리 365 */
 
+        .chat-cont{
+            font-size: 0;
+            text-align: center;
+        }
+        .chat-cont-in{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .chat-cont-in + .chat-cont-in{
+            margin-left: 290px;
+        }
+        .chat-cont-in img{
+            display: block;
+        }
         .chat-list{
             width: 440px;
             margin-top: 40px;
