@@ -328,7 +328,7 @@ function loopAni() {
         $('.card-item').eq(2).addClass('active');
         $('.item-inner').animate({
             left: '-310px',
-        }, 0, function(){
+        }, 1000, function(){
             $('.item-inner > .card-item').first().appendTo('.item-inner');
             $('.item-inner').css('left',0);
         })
@@ -365,15 +365,18 @@ function rollnext() {
     margin: 0 auto;
     overflow: hidden;
 }
+
 .card-item{
     float: left;
     display: inline-block;
     width: 270px;
     margin-top: 50px;
     margin-right: 40px;
+    padding: 46px 25px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
     box-shadow: 0 2px 10px 0 rgba(203, 214, 229, 0.3);
+    transition: 1s;
 }
 .card-item:nth-child(1),
 .card-item:nth-child(3){
@@ -383,6 +386,7 @@ function rollnext() {
 .card-item.active{
     width: 330px;
     margin-top: 0;
+    padding: 54px 30px;
     background: #fff;
     box-shadow: 0 2px 30px 0 #cbd6e5;
     border: 2px solid #056bff;
@@ -401,8 +405,11 @@ function rollnext() {
 
 .card-cont{
     text-align: left;
-    padding: 46px 25px;
+    /*padding: 46px 25px;*/
     opacity: 0.14;
+}
+.card-cont *{
+    transition: 1s;
 }
 .card-cont .qa{
     display: block;
@@ -435,7 +442,7 @@ function rollnext() {
 }
 
 .active .card-cont{
-    padding: 54px 30px;
+    /*padding: 54px 30px;*/
     opacity: 1;
 }
 .active .card-cont .qa{
