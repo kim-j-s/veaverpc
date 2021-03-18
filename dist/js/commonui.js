@@ -146,10 +146,12 @@ function wheelAnimate(index){
     }    
 
     // 쳇 이벤트 작동
+    /*
     if ( $('.content').eq(index + 1).hasClass('chat-in') && !$('.chat-in').hasClass('active') ) {
     	$('.chat-in').addClass('active');
 		ChatList();
     }
+    */
 
     // 맞춤형 건강 정보
     if ( $('.content').eq(index + 1).hasClass('roll')) {
@@ -161,74 +163,8 @@ function wheelAnimate(index){
 }
 
 
-// chat list
-var chatMessages = [
-    {
-        name: "msg1",
-        msg: "나의 건강 기록을 한눈에 볼 수 있을까?",
-        delay: 10,
-        align: "chat-left",
-    },
-    {
-        name: "msg2",
-        msg: "건강365에서 건강보험공단에 등록된<br> 나의 건강 Data를 정리해 드립니다.",
-        delay: 1200,
-        align: "chat-right",
-    },
-    {
-        name: "msg3",
-        msg: "매일매일 스스로 건강관리는 어떻게 하나요?",
-        delay: 10,
-        align: "chat-left",
-    },
-    {
-        name: "msg4",
-        msg: "주기적인 관리가 필요한 건강 데이터를<br> 건강365에서 기록하며 관리하세요!",
-        delay: 1200,
-        align: "chat-right",
-    }
-];
-
-
-function ChatList() {
-    var chatDelay = 0;
-    $.each(chatMessages, function(index, obj) {
-        chatDelay = chatDelay + 1000;
-        chatDelay2 = chatDelay + obj.delay;
-        chatDelay3 = chatDelay2 + 10;
-        chatTimeString = " ";
-        msgname = "." + obj.name;
-        spinner = ".sp-" + obj.name;
-
-        $(".chat-list").append(
-            "<li class=" + obj.align + ">" +
-                "<span class='txt'>" + obj.msg + "</span>" +
-               	"<span class='spin-ele sp-" + obj.name +  "'>" +
-                    "<span class='spinner'>" + 
-                        "<span class='bounce1'></span>" +
-                        "<span class='bounce2'></span>" +
-                        "<span class='bounce3'></span>" +
-                    "</span>" + 
-                "</span>" +
-            "</li>"
-        );
-
-        // display      
-        $('.chat-list > li').eq(index).delay(chatDelay).animate({
-            opacity: 1,
-        }, 500);
-        $(spinner).delay(chatDelay2).hide(1);
-        $('.chat-list > li').eq(index).children('.txt').delay(chatDelay3).animate({
-            opacity: 1,
-        }, 500);
-        chatDelay = chatDelay3;
-    });
-}
-
-
-var roller = null;
-
 // 맞춤형 건강 정보
+var roller = null;
 function loopAni() {
     loop();
     roller = setInterval(loop, 2500);
