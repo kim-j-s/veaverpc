@@ -45,15 +45,39 @@ $(function(){
         wheelAnimate(idx);
     })
 
-    // top swiper
-    var topSlide = new Swiper('.top-slide', {
-        observer: true,
-        observeParents: true,
-        speed: 500,
-        pagination: {
-            el: '.swiper-pagination',
-        },
-    });
+
+    // top slide
+    $('.top-slide').slick({
+        autoplay: false,
+        prevArrow: false,
+        nextArrow: false,
+        dots: true,
+    })
+
+
+    // 맞춤형 건강정보
+    $('.item-inner').on('mouseenter', function(){
+        console.log('break');
+        
+        if(roller != null) {
+            clearInterval(roller);
+        }
+    })
+
+
+    $('.item-inner').on('mouseleave', function(){
+        loopAni();
+    })
+
+    $('.card-item').on('click', function(){
+        var idx = $(this).index();
+        if ( idx == 0 ){
+            rollprev();
+        }
+        else if ( idx == 2 ){
+            rollnext();
+        }
+    })
 
 	//ready
 });
@@ -119,16 +143,22 @@ function wheelAnimate(index){
     } else {
         $('.nav-list').find('a').removeClass('on');
         $('.nav-list').find('a').eq(index).addClass('on');
-    }
-    
+    }    
 
     // 쳇 이벤트 작동
     if ( $('.content').eq(index + 1).hasClass('chat-in') && !$('.chat-in').hasClass('active') ) {
     	$('.chat-in').addClass('active');
 		ChatList();
     }
-}
 
+    // 맞춤형 건강 정보
+    if ( $('.content').eq(index + 1).hasClass('roll')) {
+        // 맞춤형 건강 정보
+        loopAni();
+    } else {
+        clearInterval(roller);
+    }
+}
 
 
 // chat list
@@ -196,11 +226,44 @@ function ChatList() {
 }
 
 
+var roller = null;
 
+// 맞춤형 건강 정보
+function loopAni() {
+    loop();
+    roller = setInterval(loop, 2500);
+}
 
+function loop(){
+    $('.card-item').removeClass('active').eq(2).addClass('active');
+    $('.item-inner').stop().animate({
+        left: '-310px',
+    }, 1000, function(){
+        $('.item-inner > .card-item').first().appendTo('.item-inner');
+        $('.item-inner').css('left',0);
+        $('.card-item').eq(1).addClass('active');
+    })
+}
 
+function rollprev() {
+    $('.item-inner > .card-item').last().prependTo('.item-inner');
+    $('.item-inner').css('left','-310px');
+    $('.card-item').removeClass('active').eq(1).addClass('active');
+    $('.item-inner').stop().animate({
+        left: '0px',
+    }, 1000);
+}
 
-
+function rollnext() {
+    $('.card-item').removeClass('active').eq(2).addClass('active');
+    $('.item-inner').stop().animate({
+        left: '-310px',
+    }, 1000, function(){
+        $('.item-inner > .card-item').first().appendTo('.item-inner');
+        $('.item-inner').css('left',0);
+        $('.card-item').eq(1).addClass('active');
+    })
+}
 
 
 // 팝업 활성화 / 비활성화
@@ -214,5 +277,4 @@ function popControl(){
         $(this).closest('.layer-pop').removeClass('active').addClass('out');
     })
 }
-
 
