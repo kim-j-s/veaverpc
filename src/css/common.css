@@ -276,16 +276,15 @@
 
         .top-slide{
             height: 100%;
-        }
-        .top-slide .slick-cont.ty1{
             background: url(../img/visual-01.jpg) no-repeat center 0 / cover;
             background-attachment: fixed;
+            transition: .5s;
         }
-        .top-slide .slick-cont.ty2{
+        .top-slide.bg-ty1{
             background: url(../img/visual-02.jpg) no-repeat center 0 / cover;
             background-attachment: fixed;
         }
-        .top-slide .slick-cont.ty3{
+        .top-slide.bg-ty2{
             background: url(../img/visual-03.jpg) no-repeat center 0 / cover;
             background-attachment: fixed;
         }

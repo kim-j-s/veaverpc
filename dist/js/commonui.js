@@ -59,6 +59,11 @@ $(function(){
         useTransform: false,
     })
 
+    $('.top-slide').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        //console.log(nextSlide, currentSlide);
+        $('.top-slide').removeClass('bg-ty' + currentSlide).addClass('bg-ty' + nextSlide);
+    });
+
 
     // 맞춤형 건강정보
     $('.item-inner').on('mouseenter', function(){
