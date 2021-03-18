@@ -503,11 +503,19 @@
         }
         .chat-list > li > .txt{
             display: inline-block;
+            min-height: 61px;
             padding: 17px 30px;
             line-height: 27px;
             border-radius: 10px;
             background: #ebeff3;
             box-shadow: 0 2px 5px 0 rgba(117, 120, 125, 0.19);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s, transform 1s;
+        }
+        .chat-list > li.on > .txt{
+            opacity: 1;
+            transform: translateY(0);
         }
         .chat-list > li + li{
             margin-top: 30px;
@@ -576,6 +584,46 @@
             }
         }
         */
+
+        @keyframes zoomInOut {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(0);
+            }
+        }
+        .ico-loading {
+            display: none;
+        }
+        .loading .ico-loading {
+            display: block;
+            float: right;
+        }
+        .ico-loading span {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 17px;
+            margin-bottom: 17px;
+            height: 20px;
+            width: 20px;
+            border-radius: 10px;
+            background-color: #000;
+            animation-duration: .5s;
+            animation-name: zoomInOut;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+        }
+        .ico-loading span:nth-child(2) {
+            animation-delay: .1s;
+        }
+        .ico-loading span:nth-child(3) {
+            animation-delay: .2s;
+        }
+        .ico-loading span + span {
+            margin-left: 5px;
+        }
 
     /* // 건강관리 365 */
 
