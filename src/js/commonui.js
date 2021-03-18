@@ -5,6 +5,9 @@ $(function(){
     // 팝업 활성화 / 비활성화
     popControl();
 
+    // chat 초기화
+    chat365.init();
+
     // 휠 이벤트
     $('.content').each(function(index){
         //$(this).on('mousewheel DOMMouseScroll', function(e){
@@ -52,6 +55,8 @@ $(function(){
         prevArrow: false,
         nextArrow: false,
         dots: true,
+        cssEase: 'ease-out',
+        useTransform: false,
     })
 
 
@@ -126,14 +131,13 @@ function navEvent() {
 
 // 페이지 휠 이동
 function wheelAnimate(index){
-    console.log('animatie');
     var wh = $(window).height();
     $('.content').removeClass('on');
     $('html').stop(true, true).animate({
         scrollTop: (index + 1) * wh + 'px',
     }, 500, function(){
         animaion = false;
-        console.log('rst = ' + animaion);
+        //console.log('rst = ' + animaion);
         $('.content').eq(index + 1).addClass('on');
         return animaion;
     })    
@@ -146,12 +150,12 @@ function wheelAnimate(index){
     }    
 
     // 쳇 이벤트 작동
-    /*
-    if ( $('.content').eq(index + 1).hasClass('chat-in') && !$('.chat-in').hasClass('active') ) {
-    	$('.chat-in').addClass('active');
-		ChatList();
+    if ( $('.content').eq(index + 1).hasClass('chat-in')) {
+        chat365.start();
+    } else {
+        chat365.reset();
     }
-    */
+
 
     // 맞춤형 건강 정보
     if ( $('.content').eq(index + 1).hasClass('roll')) {
@@ -214,3 +218,57 @@ function popControl(){
     })
 }
 
+
+// chat365.init(); 초기화 처음에 페이지 로딩시 한번실행
+// chat365.start(); 모션 시작
+// chat365.reset(); 모션 멈추고 초기 상태로 리셋
+var chat365 = {
+    $chatList: null,
+    $chatItem: null,
+    timer: null,
+    init: function () {
+        var obj = this;
+
+        obj.$chatList = $('.chat-history .chat-list');
+        obj.$chatItem = obj.$chatList.children('li');
+
+        obj.$chatItem.eq(0).find('.txt')[0].addEventListener('th.endType', function (e) {
+            console.log('end 1');
+            obj.$chatItem.eq(1).addClass('loading');
+
+            obj.timer = setTimeout(function () {
+                obj.$chatItem.eq(1).removeClass('loading');
+                obj.$chatItem.eq(1).addClass('on');
+
+                obj.timer = setTimeout(function () {
+                    obj.$chatItem.eq(2).addClass('on');
+                    TypeHangul.type('.chat-list li:nth-child(3) .txt', {
+                        intervalType: 20
+                    });
+                }, 1200);
+            }, 1200);
+        });
+
+        obj.$chatItem.eq(2).find('.txt')[0].addEventListener('th.endType', function (e) {
+            console.log('end 3');
+            obj.$chatItem.eq(3).addClass('loading');
+            obj.timer = setTimeout(function () {
+                obj.$chatItem.eq(3).removeClass('loading');
+                obj.$chatItem.eq(3).addClass('on');
+            }, 1200);
+        });
+    },
+    start: function() {
+        this.$chatItem.eq(0).addClass('on');
+        TypeHangul.type('.chat-list li:nth-child(1) .txt', {
+            intervalType: 20
+        });
+    },
+    reset: function() {
+        clearTimeout(this.timer);
+        this.$chatList.find('.on, .loading').removeClass('loading').removeClass('on');
+    }
+};
+
+
+// 전화기는 delay 후 노출
