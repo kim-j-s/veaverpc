@@ -724,6 +724,8 @@
             display: flex;
             flex-direction: column;
         }
+
+        
         .content.ty7 .wave{
             position: absolute;
             display: block;
@@ -775,10 +777,15 @@
             border: 1px solid #fff;
             border-radius: 8px;
             text-align: center;
+            transition: .5s;
         }
         .link-store.black{
             border: 1px solid #000;
             background: #000;
+        }
+        .link-store:hover{
+            border: 1px solid rgba(0, 0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
         }
         .link-store + .link-store{
             margin-left: 20px;
