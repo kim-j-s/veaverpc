@@ -181,7 +181,6 @@
         position: relative;
         height: 100%;
         padding-top: 90px;
-        background-attachment: fixed;
     }
     .content > .inner{
         height: 100%;
@@ -450,7 +449,7 @@
             left: 50%;
             width: 90px;
             height: 90px;
-            background: #056bff url(../img/ic-voice-03.png) no-repeat center center;
+            background: #056bff url(../img/ic-voice-01.png) no-repeat center center;
             transform: translateX(-50%);
             border-radius: 50%;
         }

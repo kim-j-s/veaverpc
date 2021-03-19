@@ -81,10 +81,10 @@ $(function(){
 
     $('.card-item').on('click', function(){
         var idx = $(this).index();
-        if ( idx == 0 ){
+        if ( idx == 0 && !$(this).hasClass('active')){
             rollprev();
         }
-        else if ( idx == 2 ){
+        else if ( idx == 2 && !$(this).hasClass('active')){
             rollnext();
         }
     })
@@ -175,7 +175,7 @@ function wheelAnimate(index){
 // 맞춤형 건강 정보
 var roller = null;
 function loopAni() {
-    loop();
+    //loop();
     roller = setInterval(loop, 2500);
 }
 
