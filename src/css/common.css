@@ -344,6 +344,7 @@
             font-size: 0;
             text-align: center;
         }
+        /*
         .mining-list:before{
             content: '';
             position: absolute;
@@ -356,6 +357,7 @@
             width: 100%;
             transition: 3.8s;
         }
+        */
         .mining-list > li{
             position: relative;
             top: 150px;
