@@ -132,7 +132,7 @@ function serve(done){
 		port : 1111,
 		server : {
 			baseDir : 'dist/',
-			index : "html/index.html"
+			index : "index.html"
 		}
 	});
 	done();

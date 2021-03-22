@@ -7,13 +7,13 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <meta name="x-apple-disable-message-reformatting">
     <title>Health mining</title>
-    <link href="../css/reset.css" rel="stylesheet">
-    <link href="../css/slick.css" rel="stylesheet">
-    <link href="../css/common.css" rel="stylesheet">
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/type-hangul.bundle.js"></script>
-    <script type="text/javascript" src="../js/slick.min.js"></script>
-    <script type="text/javascript" src="../js/commonui.js"></script>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/type-hangul.bundle.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script type="text/javascript" src="js/commonui.js"></script>
     <!--[if lt IE 9]>
     <script type="text/javascript">
         document.createElement("header"); 
@@ -41,62 +41,61 @@
                 </ul>
             </nav>
             <div class="h-util">
-                <button type="button" class="rnd-d ty1" data-open="layer">공동인증서</button>
+                <button type="button" class="rnd-d ty1" data-open="layer">공동인증서 내려받기</button>
             </div>
         </div>
     </header>
     <!-- //헤더영역 -->
 
     <!-- 컨텐츠 영역 -->
+    <!-- 메인비쥬얼 -->
     <section class="content ty1">
         <div class="inner">
-            <div class="top-slide swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="in-cont">
-                            <div class="cont-center">
-                                <h2 class="tit-h2 left">
-                                    <strong class="color02">언제, 어디서나<br> 함께 하는 우리집 건강 주치의</strong>
-                                </h2>
-                                <div class="store-btns">
-                                    <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
-                                    <a href="#" class="link-store"><span class="app-store">App Store</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="in-cont">
-                            <div class="cont-center">
-                                <h2 class="tit-h2 left">
-                                    <strong class="color02">언제, 어디서나<br> 함께 하는 우리집 건강 주치의</strong>
-                                </h2>
-                                <div class="store-btns">
-                                    <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
-                                    <a href="#" class="link-store"><span class="app-store">App Store</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="in-cont">
-                            <div class="cont-center">
-                                <h2 class="tit-h2 left">
-                                    <strong class="color02">언제, 어디서나<br> 함께 하는 우리집 건강 주치의</strong>
-                                </h2>
-                                <div class="store-btns">
-                                    <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
-                                    <a href="#" class="link-store"><span class="app-store">App Store</span></a>
-                                </div>
+            <div class="top-slide">
+                <div class="slick-cont ty1">
+                    <div class="in-cont">
+                        <div class="cont-center">
+                            <h2 class="tit-h2 left">
+                                <strong class="color02">건강에 대한<br> 모든 궁금증과 해답을 모았다!</strong>
+                            </h2>
+                            <div class="store-btns">
+                                <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
+                                <a href="#" class="link-store"><span class="app-store">App Store</span></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="slick-cont ty2">
+                    <div class="in-cont">
+                        <div class="cont-center">
+                            <h2 class="tit-h2 left">
+                                <strong class="color02">전문의가 직접<br> 설명해주는 건강 정보!</strong>
+                            </h2>
+                            <div class="store-btns">
+                                <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
+                                <a href="#" class="link-store"><span class="app-store">App Store</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-cont ty3">
+                    <div class="in-cont">
+                        <div class="cont-center">
+                            <h2 class="tit-h2 left">
+                                <strong class="color02">언제, 어디서나<br> 함께 하는 우리집 건강 주치의</strong>
+                            </h2>
+                            <div class="store-btns">
+                                <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
+                                <a href="#" class="link-store"><span class="app-store">App Store</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <span class="rnd-bg ty1"></span>
     </section>
+    <!-- // 메인비쥬얼 -->
 
     <!-- 헬스마이닝 -->
     <section class="content ty2">
@@ -166,27 +165,6 @@
     </section>
     <!-- // AI헬스Q -->
 
-
-    <style>
-        .chat-cont {
-            font-size: 0;
-            text-align: center;
-        }
-
-        .chat-cont-in {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .chat-cont-in+.chat-cont-in {
-            margin-left: 290px;
-        }
-
-        .chat-cont-in img {
-            display: block;
-        }
-    </style>
-
     <!-- 건강365 -->
     <section class="content ty4 chat-in">
         <div class="cont-center">
@@ -199,11 +177,24 @@
                         </h2>
                         <div class="chat-history">
                             <ul class="chat-list">
-                                <li class="w-txt01" style="opacity: 1"></li>
+                                <li class="chat-left">
+                                    <span class="txt">나의 건강 기록을 한눈에 볼 수 있을까?</span>
+                                </li>
+                                <li class="chat-right">
+                                    <span class="ico-loading"><span></span><span></span><span></span></span>
+                                    <span class="txt">건강365에서 건강보험공단에 등록된<br> 나의 건강 Data를 정리해 드립니다.</span>
+                                </li>
+                                <li class="chat-left">
+                                    <span class="txt">매일매일 스스로 건강관리는 어떻게 하나요?</span>
+                                </li>
+                                <li class="chat-right">
+                                    <span class="ico-loading"><span></span><span></span><span></span></span>
+                                    <span class="txt">주기적인 관리가 필요한 건강 데이터를<br> 건강365에서 기록하며 관리하세요!</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="chat-cont-in">
+                    <div class="chat-cont-in img-f">
                         <img src="../img/img-mockup-02.png" alt="">
                     </div>
                 </div>
@@ -213,7 +204,7 @@
     </section>
     <!-- // 건강365 -->
 
-    <!-- 예방 접종 -->
+    <!-- 예방접종수첩 -->
     <section class="content ty5">
         <div class="inner">
             <div class="in-cont">
@@ -243,23 +234,103 @@
         </div>
         <span class="rnd-bg ty1"></span>
     </section>
-    <!-- // 예방 접종 -->
+    <!-- // 예방접종수첩 -->
 
-    <!-- 맞춤 건강 정보 -->
-    <section class="content ty6">
-        <div class="in-cont">
-            <h2 class="tit-h2">
-                <small><span class="rnd-d ty1">맞춤형 건강 정보</span></small>
-                <strong>전문의가 말해주는 진짜 의료 정보</strong>
-            </h2>
-            <p class="desc color03">
-                전문의가 직접 작성하고, 출연해서 만든 건강 정보<br>
-                질병/건강에 대한 궁금증이 생겼다면, 지금 전문의와 상담해주세요.
-            </p>
+    <!-- 맞춤형 건강정보 -->
+    <section class="content ty6 roll">
+        <div class="ins-cont">
+            <div class="cont-center">
+                <h2 class="tit-h2">
+                    <small><span class="rnd-d ty2">맞춤형 건강 정보</span></small>
+                    <strong>전문의가 말해주는 진짜 의료 정보</strong>
+                </h2>
+                <p class="desc color03">
+                    전문의가 직접 작성하고, 출연해서 만든 건강 정보<br>
+                    질병/건강에 대한 궁금증이 생겼다면, 지금 전문의와 상담해주세요.
+                </p>
+            </div>
+        </div>
+        <div class="card-items-wrap">
+            <div class="card-items">
+                <div class="item-inner">
+                    <div class="card-item ty1">
+                        <dl class="card-cont">
+                            <dt>
+                                <span class="qa">Q. 1</span>
+                                증상이 없는 담석증도<br> 치료가 필요한가요?
+                            </dt>
+                            <dd>
+                                <span class="qa">A.</span>
+                                증상이 없으면 큰 문제가 되지<br> 않습니다. 담낭안의 담석이 큰<br> 문제를 일으키지 않는다면 평생<br> 치료를 받지...
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="card-item ty2 active">
+                        <dl class="card-cont">
+                            <dt>
+                                <span class="qa">Q. 2</span>
+                                볼거리, 다른 질환과<br> 구분할 수 있나요?
+                            </dt>
+                            <dd>
+                                <span class="qa">A.</span>
+                                볼거리 외에도 침샘의 염증이 생기는<br> 질환은 다양하게 있습니다. 볼이<br> 붓는 것 외에 근육통, 열 등 감기 유사<br> 증상이 동반되고, 음식을 섭취...
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="card-item ty3">
+                        <dl class="card-cont">
+                            <dt>
+                                <span class="qa">Q. 3</span>
+                                제산제가 십이지장염을<br> 예방할 수 있나요?
+                            </dt>
+                            <dd>
+                                <span class="qa">A.</span>
+                                제산제는 예방에 도움이 되지<br> 않습니다. 제산제는 액상형으로<br> 위산을 중화시키는 작용을 합니다.<br> 즉, 근...
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="card-item ty4">
+                        <dl class="card-cont">
+                            <dt>
+                                <span class="qa">Q. 4</span>
+                                증상이 없는 담석증도<br> 치료가 필요한가요?
+                            </dt>
+                            <dd>
+                                <span class="qa">A.</span>
+                                증상이 없으면 큰 문제가 되지<br> 않습니다. 담낭안의 담석이 큰<br> 문제를 일으키지 않는다면 평생<br> 치료를 받지...
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="card-item ty5">
+                        <dl class="card-cont">
+                            <dt>
+                                <span class="qa">Q. 5</span>
+                                볼거리, 다른 질환과<br> 구분할 수 있나요?
+                            </dt>
+                            <dd>
+                                <span class="qa">A.</span>
+                                볼거리 외에도 침샘의 염증이 생기는<br> 질환은 다양하게 있습니다. 볼이<br> 붓는 것 외에 근육통, 열 등 감기 유사<br> 증상이 동반되고, 음식을 섭취...
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="card-item ty6">
+                        <dl class="card-cont">
+                            <dt>
+                                <span class="qa">Q. 6</span>
+                                제산제가 십이지장염을<br> 예방할 수 있나요?
+                            </dt>
+                            <dd>
+                                <span class="qa">A.</span>
+                                제산제는 예방에 도움이 되지<br> 않습니다. 제산제는 액상형으로<br> 위산을 중화시키는 작용을 합니다.<br> 즉, 근...
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
         </div>
         <span class="rnd-bg ty1"></span>
     </section>
-    <!-- // 맞춤 건강 정보 -->
+    <!-- // 맞춤형 건강정보 -->
 
     <!-- footer -->
     <section class="content ty7">
@@ -274,6 +345,7 @@
                 </div>
                 <span class="wave ty1"></span>
                 <span class="wave ty2"></span>
+                <span class="wave ty3"></span>
             </div>
             <span class="rnd-bg ty5"></span>
         </div>
