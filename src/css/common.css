@@ -733,13 +733,13 @@
             animation-duration: 3s;
             animation-timing-function: linear;
             background: url(../img/loading-line-01.png) repeat-x;
-            background-size: 1790px 160px;
+            background-size: 2685px 118px;
         }
         .content.ty7 .wave.ty2{
             animation-duration: 4s;
             animation-timing-function: linear;
             background: url(../img/loading-line-02.png) repeat-x;
-            background-size: 1790px 160px;
+            background-size: 2685px 118px;
         }
 
         @keyframes loadingWave {
@@ -747,7 +747,7 @@
                 background-position: 0 0;
             }
             to {
-                background-position: 1790px 0;
+                background-position: 2685px 0;
             }
         }
 
