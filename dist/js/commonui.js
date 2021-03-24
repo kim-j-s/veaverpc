@@ -1,4 +1,4 @@
-// var animaion = false;
+// var animation = false;
 
 $(function(){
 
@@ -10,28 +10,17 @@ $(function(){
 
     // 휠 이벤트
     $('.content').each(function(index){
-        //$(this).on('mousewheel DOMMouseScroll', function(e){
-
         $(this).on('wheel', function(e){
             e.stopPropagation();
             e.preventDefault();
 
-            console.log('---------------------');
-            console.log('진입 before : ' + animaion);            
-
-            if (animaion === true) {
+            if (animation === true) {
                 return false;
             }
 
-            console.log('---------------------');
-            console.log('시작 before : ' + animaion);
-
-            if (animaion === false) {
-                animaion = true;
-                //console.log('시작 : ' + animaion);
-                
+            if (animation === false) {
+                animation = true;
                 var event = e.originalEvent.deltaY;
-                //console.log('event :' + event);
                 wheel(index, event);
             } else {
                 return false;
@@ -60,15 +49,12 @@ $(function(){
     })
 
     $('.top-slide').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-        //console.log(nextSlide, currentSlide);
         $('.top-slide').removeClass('bg-ty' + currentSlide).addClass('bg-ty' + nextSlide);
     });
 
 
     // 맞춤형 건강정보
     $('.item-inner').on('mouseenter', function(){
-        console.log('break');
-        
         if(roller != null) {
             clearInterval(roller);
         }
@@ -99,29 +85,24 @@ function wheel(index, event) {
     var contLng = $('.content').length;
     $('.nav-list').find('a').blur();
     if (event < 0) {
-        // wheeled up
         if ( index > 0) {
-            //console.log('상단으로 이동');
             wheelAnimate(index - 2);
         } else {
-            //console.log('up 최상단 도달 시');
-            animaion = false;
+            animation = false;
         }
     }
     else {
         // wheeled down
         if ( (index + 1) < contLng) {
-            //console.log('down 1 내려간다 : ' + (index + 1), contLng);
             wheelAnimate(index);
         } else {
-            //console.log('down 2 : ' + (index + 1));
-            animaion = false;
+            animation = false;
         }
     }
 }
 
 
-var animaion = false;
+var animation = false;
 
 // nav 이벤트
 function navEvent() {
@@ -141,10 +122,9 @@ function wheelAnimate(index){
     $('html').stop(true, true).animate({
         scrollTop: (index + 1) * wh + 'px',
     }, 500, function(){
-        animaion = false;
-        //console.log('rst = ' + animaion);
+        animation = false;
         $('.content').eq(index + 1).addClass('on');
-        return animaion;
+        return animation;
     })    
 
     if (index < 0) {
@@ -155,19 +135,16 @@ function wheelAnimate(index){
     }    
 
     // 쳇 이벤트 작동
-    if ( $('.content').eq(index + 1).hasClass('chat-in')) {
+    if ( $('.content').eq(index + 1).hasClass('chat-in') && !$('.chat-in').hasClass('passed')) {
+        $('.chat-in').addClass('passed');
         chat365.start();
-    } else {
-        chat365.reset();
     }
-
 
     // 맞춤형 건강 정보
     if ( $('.content').eq(index + 1).hasClass('roll')) {
         // 맞춤형 건강 정보
-        loopAni();
-    } else {
         clearInterval(roller);
+        loopAni();
     }
 }
 
@@ -175,7 +152,6 @@ function wheelAnimate(index){
 // 맞춤형 건강 정보
 var roller = null;
 function loopAni() {
-    //loop();
     roller = setInterval(loop, 2500);
 }
 
@@ -191,6 +167,7 @@ function loop(){
 }
 
 function rollprev() {
+    if ( $('.item-inner').is(':animated') ) return false;
     $('.item-inner > .card-item').last().prependTo('.item-inner');
     $('.item-inner').css('left','-310px');
     $('.card-item').removeClass('active').eq(1).addClass('active');
