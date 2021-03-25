@@ -311,6 +311,9 @@
             text-indent: -9999px;
             cursor: pointer;
         }
+        .top-slide .slick-dots > li button{
+            display: none;
+        }
         .top-slide .slick-dots > li.slick-active{
             opacity: 1;
         }
