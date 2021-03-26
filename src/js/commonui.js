@@ -10,18 +10,17 @@
 
         $slider.attr('pnum', 1);
 
-        console.log($navAnchor);
-
         // 페이지 이동
         function movePage(pageNum) {
+            $slide.off('wheel', wheelEvtListener);
             $slider.attr('pnum', pageNum);
+            $slide.removeClass('on').eq(pageNum - 1).addClass('on');
+
 
             // nav
             $navAnchor.removeClass('on');
 
-            console.log(pageNum);
             if(pageNum > 1 && pageNum < 7) {
-                console.log('nav');
                 $navAnchor.eq(pageNum-2).addClass('on');
             }
 
@@ -31,16 +30,16 @@
                 chat365.start();
             }
 
-            $slide.removeClass('on').eq(pageNum - 1).addClass('on');
-            $slide.off('wheel', wheelEvtListener);
-            $slide.eq(pageNum - 1).on('wheel', wheelEvtListener);
+            setTimeout(function(){
+                $slide.eq(pageNum - 1).on('wheel', wheelEvtListener);
+            }, 500);
         }
 
         // 휠 이벤트
         function wheelEvtListener(e) {
-            e.stopPropagation();
+            // e.stopPropagation();
             e.preventDefault();
-
+            e.stopImmediatePropagation();
             var pageNum = Number($slider.attr('pnum'));
 
             if (e.originalEvent.deltaY > 0) {
@@ -179,7 +178,6 @@
             obj.$chatItem = obj.$chatList.children('li');
 
             obj.$chatItem.eq(0).find('.txt')[0].addEventListener('th.endType', function (e) {
-                console.log('end 1');
                 obj.$chatItem.eq(1).addClass('loading');
 
                 obj.timer = setTimeout(function () {
@@ -196,7 +194,6 @@
             });
 
             obj.$chatItem.eq(2).find('.txt')[0].addEventListener('th.endType', function (e) {
-                console.log('end 3');
                 obj.$chatItem.eq(3).addClass('loading');
                 obj.timer = setTimeout(function () {
                     obj.$chatItem.eq(3).removeClass('loading');

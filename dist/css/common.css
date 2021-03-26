@@ -95,9 +95,10 @@
         position: absolute;
         top: 40px;
         left: 0;
+        height: 30px;
     }
     .h-inner .logo > a{
-        display: inline-block;
+        display: block;
         width: 181px;
         height: 30px;
         font-size: 0;
