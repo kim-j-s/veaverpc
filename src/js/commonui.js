@@ -12,39 +12,35 @@
 
         // 페이지 이동
         function movePage(pageNum) {
-            $slide.off('wheel', wheelEvtListener);
             $slider.attr('pnum', pageNum);
             $slide.removeClass('on').eq(pageNum - 1).addClass('on');
 
 
-<<<<<<< HEAD
-            if (animation === true) {
-                return false;
-=======
             // nav
             $navAnchor.removeClass('on');
 
-            if(pageNum > 1 && pageNum < 7) {
-                $navAnchor.eq(pageNum-2).addClass('on');
+            if (pageNum > 1 && pageNum < 7) {
+                $navAnchor.eq(pageNum - 2).addClass('on');
             }
 
             // 건강365
             if (pageNum == 4 && !$('.chat-in').hasClass('passed')) {
                 $('.chat-in').addClass('passed');
                 chat365.start();
->>>>>>> 9c9598566069263282bcdafbca8e9c7b255ae4de
             }
 
-            setTimeout(function(){
+            $slide.off('wheel', wheelEvtListener);
+            setTimeout(function () {
                 $slide.eq(pageNum - 1).on('wheel', wheelEvtListener);
-            }, 500);
+            }, 800);
         }
 
         // 휠 이벤트
         function wheelEvtListener(e) {
-            // e.stopPropagation();
+            e.stopPropagation();
             e.preventDefault();
-            e.stopImmediatePropagation();
+
+            console.log(e);
             var pageNum = Number($slider.attr('pnum'));
 
             if (e.originalEvent.deltaY > 0) {
@@ -158,13 +154,13 @@
     }
 
     // 팝업 활성화 / 비활성화
-    function popControl(){
-        $('[data-open]').on('click', function(){
+    function popControl() {
+        $('[data-open]').on('click', function () {
             var data = $(this).data('open');
-            $("[data-openpop='" + data +  "']").removeClass('out').addClass('active');
+            $("[data-openpop='" + data + "']").removeClass('out').addClass('active');
         })
 
-        $('.layer-close').on('click', function(){
+        $('.layer-close').on('click', function () {
             $(this).closest('.layer-pop').removeClass('active').addClass('out');
         })
     }
