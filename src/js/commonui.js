@@ -16,12 +16,6 @@ $(function(){
 
             if ( $('html').is(':animated') ) return false;
 
-            if ( $('html').is(':animated') ) {
-                console.log('s');
-            }
-
-            //if ( $('html').is(':animated') ) return false;
-
             if (animation === true) {
                 return false;
             }
