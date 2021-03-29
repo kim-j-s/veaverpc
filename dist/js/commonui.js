@@ -1,16 +1,10 @@
 (function ($) {
 
-    var isSafari = (function () {
-        var agent = navigator.userAgent.toLowerCase();
-        if (agent && agent.indexOf("safari") != -1) return true;
+    var isMacSafari = (function () {
+        var agent = navigator.userAgent;
+        if (agent && agent.toLowerCase().indexOf("safari") != -1 && navigator.appVersion.indexOf("Mac")!=-1) return true;
         else return false;
     })();
-    // isSafari = true;
-    // var isSafari = (function () {
-    //     if (navigator.appVersion.indexOf("Mac")!=-1) return true;
-    //     else return false;
-    // })();
-    // console.log(isSafari);
 
     function initSlider() {
         var $slider = $('.content-wrap'); // content-wrap
@@ -27,16 +21,9 @@
         var isDown = true;
         var movingTime = 300;
 
-<<<<<<< HEAD
-        $slider.on('wheel', function (e) {
-            var absDtY = Math.abs(e.originalEvent.deltaY);
-            console.log(e);
-            console.log(e.originalEvent.deltaY);
-            if (isDown && bfAbsDtY < absDtY) {
-=======
         var wheelEvtListener = null;
 
-        if(isSafari) {
+        if(isMacSafari) {
             // safrai
             $slider.on('wheel', function (e) {
                 // console.log(e);
@@ -65,7 +52,6 @@
         } else {
             wheelEvtListener = function (e) {
                 // console.log(e.originalEvent.deltaY);
->>>>>>> 2ec5d87b5970dd5cacaa5bea3e00df4d26a22bb7
                 var pageNum = Number($slider.attr('pnum'));
 
                 if (e.originalEvent.deltaY > 0 && pageNum != pageLen) {
@@ -80,7 +66,7 @@
 
         // 페이지 이동
         function movePage(pageNum) {
-            if(isSafari) {
+            if(isMacSafari) {
                 isMoving = true;
             }
 
@@ -101,12 +87,12 @@
                 chat365.start();
             }
 
-            if(!isSafari) {
+            if(!isMacSafari) {
                 $slide.off('wheel', wheelEvtListener);
             }
 
             setTimeout(function () {
-                if(isSafari) {
+                if(isMacSafari) {
                     isMoving = false;
                 } else {
                     $slide.eq(pageNum-1).on('wheel', wheelEvtListener);
