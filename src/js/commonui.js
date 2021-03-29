@@ -30,6 +30,8 @@
 <<<<<<< HEAD
         $slider.on('wheel', function (e) {
             var absDtY = Math.abs(e.originalEvent.deltaY);
+            console.log(e);
+            console.log(e.originalEvent.deltaY);
             if (isDown && bfAbsDtY < absDtY) {
 =======
         var wheelEvtListener = null;
