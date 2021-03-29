@@ -19,7 +19,7 @@
         var isMoving = false;
         var bfAbsDtY = 0;
         var isDown = true;
-        var movingTime = 300;
+        var movingTime = 500;
 
         var wheelEvtListener = null;
 
