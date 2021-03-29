@@ -1,16 +1,10 @@
 (function ($) {
 
-    var isSafari = (function () {
-        var agent = navigator.userAgent.toLowerCase();
-        if (agent && agent.indexOf("safari") != -1) return true;
+    var isMacSafari = (function () {
+        var agent = navigator.userAgent;
+        if (agent && agent.toLowerCase().indexOf("safari") != -1 && navigator.appVersion.indexOf("Mac")!=-1) return true;
         else return false;
     })();
-    // isSafari = true;
-    // var isSafari = (function () {
-    //     if (navigator.appVersion.indexOf("Mac")!=-1) return true;
-    //     else return false;
-    // })();
-    // console.log(isSafari);
 
     function initSlider() {
         var $slider = $('.content-wrap'); // content-wrap
@@ -29,7 +23,7 @@
 
         var wheelEvtListener = null;
 
-        if(isSafari) {
+        if(isMacSafari) {
             // safrai
             $slider.on('wheel', function (e) {
                 // console.log(e);
@@ -72,7 +66,7 @@
 
         // 페이지 이동
         function movePage(pageNum) {
-            if(isSafari) {
+            if(isMacSafari) {
                 isMoving = true;
             }
 
@@ -93,12 +87,12 @@
                 chat365.start();
             }
 
-            if(!isSafari) {
+            if(!isMacSafari) {
                 $slide.off('wheel', wheelEvtListener);
             }
 
             setTimeout(function () {
-                if(isSafari) {
+                if(isMacSafari) {
                     isMoving = false;
                 } else {
                     $slide.eq(pageNum-1).on('wheel', wheelEvtListener);
