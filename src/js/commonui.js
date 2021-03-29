@@ -21,6 +21,13 @@
         var isDown = true;
         var movingTime = 300;
 
+<<<<<<< HEAD
+        $slider.on('wheel', function (e) {
+            var absDtY = Math.abs(e.originalEvent.deltaY);
+            console.log(e);
+            console.log(e.originalEvent.deltaY);
+            if (isDown && bfAbsDtY < absDtY) {
+=======
         var wheelEvtListener = null;
 
         if(isMacSafari) {
@@ -52,6 +59,7 @@
         } else {
             wheelEvtListener = function (e) {
                 // console.log(e.originalEvent.deltaY);
+>>>>>>> 2ec5d87b5970dd5cacaa5bea3e00df4d26a22bb7
                 var pageNum = Number($slider.attr('pnum'));
 
                 if (e.originalEvent.deltaY > 0 && pageNum != pageLen) {
