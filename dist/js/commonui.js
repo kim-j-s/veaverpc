@@ -1,8 +1,12 @@
 (function ($) {
 
-    var isMacSafari = (function () {
-        var agent = navigator.userAgent;
-        if (agent && agent.toLowerCase().indexOf("safari") != -1 && navigator.appVersion.indexOf("Mac")!=-1) return true;
+    // var isMac = (function () {
+    //     var agent = navigator.userAgent;
+    //     if (agent && agent.toLowerCase().indexOf("safari") != -1 && navigator.appVersion.indexOf("Mac")!=-1) return true;
+    //     else return false;
+    // })();
+    var isMac = (function () {
+        if (navigator.appVersion.indexOf("Mac")!=-1) return true;
         else return false;
     })();
 
@@ -23,7 +27,7 @@
 
         var wheelEvtListener = null;
 
-        if(isMacSafari) {
+        if(isMac) {
             // safrai
             $slider.on('wheel', function (e) {
                 // console.log(e);
@@ -40,13 +44,17 @@
                             movePage(--pageNum);
                         }
                     }
+                    isDown = false;
                 }
 
-                if (bfAbsDtY <= absDtY) {
-                    isDown = false;
-                } else {
+                if (bfAbsDtY > absDtY) {
                     isDown = true;
                 }
+                // if (bfAbsDtY <= absDtY) {
+                //     isDown = false;
+                // } else {
+                //     isDown = true;
+                // }
                 bfAbsDtY = absDtY;
             });
         } else {
@@ -66,7 +74,7 @@
 
         // 페이지 이동
         function movePage(pageNum) {
-            if(isMacSafari) {
+            if(isMac) {
                 isMoving = true;
             }
 
@@ -87,12 +95,12 @@
                 chat365.start();
             }
 
-            if(!isMacSafari) {
+            if(!isMac) {
                 $slide.off('wheel', wheelEvtListener);
             }
 
             setTimeout(function () {
-                if(isMacSafari) {
+                if(isMac) {
                     isMoving = false;
                 } else {
                     $slide.eq(pageNum-1).on('wheel', wheelEvtListener);
