@@ -1,5 +1,17 @@
 (function ($) {
 
+    var isSafari = (function () {
+        var agent = navigator.userAgent.toLowerCase();
+        if (agent && agent.indexOf("safari") != -1) return true;
+        else return false;
+    })();
+    // isSafari = true;
+    // var isSafari = (function () {
+    //     if (navigator.appVersion.indexOf("Mac")!=-1) return true;
+    //     else return false;
+    // })();
+    // console.log(isSafari);
+
     function initSlider() {
         var $slider = $('.content-wrap'); // content-wrap
         var $slide = $slider.find('.content'); // 슬라이드
@@ -15,34 +27,62 @@
         var isDown = true;
         var movingTime = 300;
 
+<<<<<<< HEAD
         $slider.on('wheel', function (e) {
             var absDtY = Math.abs(e.originalEvent.deltaY);
             console.log(e);
             console.log(e.originalEvent.deltaY);
             if (isDown && bfAbsDtY < absDtY) {
-                var pageNum = Number($slider.attr('pnum'));
+=======
+        var wheelEvtListener = null;
 
-                // moving
-                if (!isMoving) {
-                    if (e.originalEvent.deltaY > 0 && pageNum != pageLen) {
-                        movePage(++pageNum);
-                    } else if (e.originalEvent.deltaY < 0 && pageNum != 1) {
-                        movePage(--pageNum);
+        if(isSafari) {
+            // safrai
+            $slider.on('wheel', function (e) {
+                // console.log(e);
+                // console.log(e.originalEvent.deltaY);
+                var absDtY = Math.abs(e.originalEvent.deltaY);
+                if (isDown && bfAbsDtY < absDtY) {
+                    var pageNum = Number($slider.attr('pnum'));
+
+                    // moving
+                    if (!isMoving) {
+                        if (e.originalEvent.deltaY > 0 && pageNum != pageLen) {
+                            movePage(++pageNum);
+                        } else if (e.originalEvent.deltaY < 0 && pageNum != 1) {
+                            movePage(--pageNum);
+                        }
                     }
                 }
-            }
 
-            if (bfAbsDtY <= absDtY) {
-                isDown = false;
-            } else {
-                isDown = true;
-            }
-            bfAbsDtY = absDtY;
-        });
+                if (bfAbsDtY <= absDtY) {
+                    isDown = false;
+                } else {
+                    isDown = true;
+                }
+                bfAbsDtY = absDtY;
+            });
+        } else {
+            wheelEvtListener = function (e) {
+                // console.log(e.originalEvent.deltaY);
+>>>>>>> 2ec5d87b5970dd5cacaa5bea3e00df4d26a22bb7
+                var pageNum = Number($slider.attr('pnum'));
+
+                if (e.originalEvent.deltaY > 0 && pageNum != pageLen) {
+                    movePage(++pageNum);
+                } else if (e.originalEvent.deltaY < 0 && pageNum != 1) {
+                    movePage(--pageNum);
+                }
+            };
+
+            $slide.eq(0).on('wheel', wheelEvtListener);
+        }
 
         // 페이지 이동
         function movePage(pageNum) {
-            isMoving = true;
+            if(isSafari) {
+                isMoving = true;
+            }
 
             $slider.attr('pnum', pageNum);
             $slide.removeClass('on').eq(pageNum - 1).addClass('on');
@@ -61,8 +101,16 @@
                 chat365.start();
             }
 
+            if(!isSafari) {
+                $slide.off('wheel', wheelEvtListener);
+            }
+
             setTimeout(function () {
-                isMoving = false;
+                if(isSafari) {
+                    isMoving = false;
+                } else {
+                    $slide.eq(pageNum-1).on('wheel', wheelEvtListener);
+                }
             }, movingTime);
         }
 
