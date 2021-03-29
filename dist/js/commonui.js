@@ -10,9 +10,38 @@
 
         $slider.attr('pnum', 1);
 
+        var isMoving = false;
+        var bfAbsDtY = 0;
+        var isDown = true;
+        var movingTime = 300;
+
+        $slider.on('wheel', function (e) {
+            var absDtY = Math.abs(e.originalEvent.deltaY);
+            if (isDown && bfAbsDtY < absDtY) {
+                var pageNum = Number($slider.attr('pnum'));
+
+                // moving
+                if (!isMoving) {
+                    if (e.originalEvent.deltaY > 0 && pageNum != pageLen) {
+                        movePage(++pageNum);
+                    } else if (e.originalEvent.deltaY < 0 && pageNum != 1) {
+                        movePage(--pageNum);
+                    }
+                }
+            }
+
+            if (bfAbsDtY <= absDtY) {
+                isDown = false;
+            } else {
+                isDown = true;
+            }
+            bfAbsDtY = absDtY;
+        });
+
         // 페이지 이동
         function movePage(pageNum) {
-            $slide.off('wheel', wheelEvtListener);
+            isMoving = true;
+
             $slider.attr('pnum', pageNum);
             $slide.removeClass('on').eq(pageNum - 1).addClass('on');
 
@@ -20,8 +49,8 @@
             // nav
             $navAnchor.removeClass('on');
 
-            if(pageNum > 1 && pageNum < 7) {
-                $navAnchor.eq(pageNum-2).addClass('on');
+            if (pageNum > 1 && pageNum < 7) {
+                $navAnchor.eq(pageNum - 2).addClass('on');
             }
 
             // 건강365
@@ -30,31 +59,10 @@
                 chat365.start();
             }
 
-            setTimeout(function(){
-                $slide.eq(pageNum - 1).on('wheel', wheelEvtListener);
-            }, 500);
+            setTimeout(function () {
+                isMoving = false;
+            }, movingTime);
         }
-
-        // 휠 이벤트
-        function wheelEvtListener(e) {
-            // e.stopPropagation();
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            var pageNum = Number($slider.attr('pnum'));
-
-            if (e.originalEvent.deltaY > 0) {
-                if (pageNum == pageLen) return;
-                ++pageNum;
-            } else if (e.originalEvent.deltaY < 0) {
-                if (pageNum == 1) return;
-                --pageNum;
-            }
-
-            movePage(pageNum);
-        };
-
-        // 휠 이벤트 등록 리스너 추가
-        $slide.eq(0).on('wheel', wheelEvtListener);
 
         // 네비
         $navAnchor.on('click', function (e) {
@@ -153,13 +161,13 @@
     }
 
     // 팝업 활성화 / 비활성화
-    function popControl(){
-        $('[data-open]').on('click', function(){
+    function popControl() {
+        $('[data-open]').on('click', function () {
             var data = $(this).data('open');
-            $("[data-openpop='" + data +  "']").removeClass('out').addClass('active');
+            $("[data-openpop='" + data + "']").removeClass('out').addClass('active');
         })
 
-        $('.layer-close').on('click', function(){
+        $('.layer-close').on('click', function () {
             $(this).closest('.layer-pop').removeClass('active').addClass('out');
         })
     }
