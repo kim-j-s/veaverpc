@@ -129,7 +129,8 @@
     // 메인 슬라이드
     function initTopSlide() {
         $('.top-slide').slick({
-            autoplay: false,
+            autoplay: true,
+            autoplaySpeed: 2000,
             prevArrow: false,
             nextArrow: false,
             dots: true,
