@@ -130,7 +130,7 @@
     function initTopSlide() {
         $('.top-slide').slick({
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 3000,
             prevArrow: false,
             nextArrow: false,
             dots: true,
