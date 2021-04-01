@@ -99,7 +99,7 @@
     }
     .h-inner .logo > a{
         display: block;
-        width: 181px;
+        width: 160px;
         height: 30px;
         font-size: 0;
         text-indent: -9999px;
@@ -112,7 +112,7 @@
 
         nav{
             display: inline-block;
-            padding: 3px 0 0 240px;
+            padding: 0 0 0 220px;
             font-size: 0;
         }
         .nav-list{
@@ -127,7 +127,7 @@
         .nav-list > li > a{
             position: relative;
             display: inline-block;
-            padding-bottom: 20px;
+            padding-bottom: 23px;
             text-align: center;
             font-size: 18px;
             line-height: 27px;
