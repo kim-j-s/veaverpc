@@ -1160,11 +1160,11 @@
             }
         }
 
-
         .layer-cont{
             position: absolute;
             top: 50%;
             left: 50%;
+            width: 1080px;
             padding: 60px 70px 80px 70px;
             -webkit-transform: translate(-50%, -50%);
                 -ms-transform: translate(-50%, -50%);
@@ -1175,6 +1175,13 @@
             position: absolute;
             top: 22px;
             right: 22px;
+        }
+        .layer-scroll{
+            max-height: 400px;
+            overflow: auto;
+        }
+        * + .layer-scroll{
+            margin-top: 15px;
         }
 
         .flow-list{

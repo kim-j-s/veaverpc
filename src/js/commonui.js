@@ -207,7 +207,8 @@
 
     // 팝업 활성화 / 비활성화
     function popControl() {
-        $('[data-open]').on('click', function () {
+        $('[data-open]').on('click', function (e) {
+            e.preventDefault();
             var data = $(this).data('open');
             $("[data-openpop='" + data + "']").removeClass('out').addClass('active');
         })
