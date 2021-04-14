@@ -221,6 +221,7 @@
     // chat365.init(); 초기화 처음에 페이지 로딩시 한번실행
     // chat365.start(); 모션 시작
     // chat365.reset(); 모션 멈추고 초기 상태로 리셋
+    /*
     var chat365 = {
         $chatList: null,
         $chatItem: null,
@@ -266,6 +267,7 @@
             this.$chatList.find('.on, .loading').removeClass('loading').removeClass('on');
         }
     };
+    */
 
     // ready
     $(function () {
