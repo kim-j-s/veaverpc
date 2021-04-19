@@ -280,7 +280,7 @@
         // 맞춤형 건강정보
         initHealthInfo();
 
-        chat365.init();
+        //chat365.init();
 
         // popControl
         popControl();
