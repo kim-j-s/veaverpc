@@ -1052,19 +1052,22 @@
                     transform: translate(-50%, -50%);
             background: #fff;
         }
+        .layer-cont.trems{
+            padding: 0;
+        }
         .layer-cont .btn.close{
             position: absolute;
             top: 22px;
             right: 22px;
         }
         .layer-scroll{
-            max-height: 400px;
+            margin: 55px 55px 0 55px;
+            max-height: 600px;
             overflow: auto;
         }
-        * + .layer-scroll{
-            margin-top: 15px;
+        .layer-scroll > .inner{
+            padding-bottom: 55px;
         }
-
         .flow-list{
             margin-top: 86px;
             font-size: 0;
@@ -1125,6 +1128,15 @@
         }
         .flow-tit + .btn-area{
             margin-top: 20px;
+        }
+        .layer-pop-tit{
+            padding: 50px 0;
+            font-weight: 500;
+            font-size: 35px;
+            color: #1e1e1e;
+            line-height: 52px;
+            text-align: center;
+            background: #f9fafb;
         }
         .btn-area{
             font-size: 0;
