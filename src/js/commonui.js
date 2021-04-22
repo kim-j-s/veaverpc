@@ -233,7 +233,11 @@
         // 맞춤형 건강정보
         initHealthInfo();
 
+<<<<<<< HEAD
         // chat365.init();
+=======
+        //chat365.init();
+>>>>>>> 48e0022e4f09cb748d7a6be7d3d45a9dac8b7d53
 
         // popControl
         popControl();
