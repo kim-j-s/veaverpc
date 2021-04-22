@@ -94,22 +94,13 @@
     }
     .h-inner .logo{
         position: absolute;
-<<<<<<< HEAD
         top: 15px;
-=======
-        top: 44px;
->>>>>>> 48e0022e4f09cb748d7a6be7d3d45a9dac8b7d53
         left: 0;
     }
     .h-inner .logo > a{
         display: block;
-<<<<<<< HEAD
         width: 200px;
         height: 60px;
-=======
-        width: 185px;
-        height: 21px;
->>>>>>> 48e0022e4f09cb748d7a6be7d3d45a9dac8b7d53
         font-size: 0;
         text-indent: -9999px;
         overflow: hidden;
