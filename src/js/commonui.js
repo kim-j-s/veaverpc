@@ -130,6 +130,7 @@
     function initTopSlide() {
         $('.top-slide').slick({
             autoplay: true,
+            speed: 300,
             autoplaySpeed: 3000,
             prevArrow: false,
             nextArrow: false,
@@ -145,64 +146,16 @@
 
     // 맞춤형 건강정보
     function initHealthInfo(params) {
-        // 맞춤형 건강 정보
-        var roller = null;
-        function loopAni() {
-            roller = setInterval(loop, 2500);
-        }
-
-        function loop() {
-            $('.card-item').removeClass('active').eq(2).addClass('active');
-            $('.item-inner').stop().animate({
-                left: '-310px',
-            }, 1000, function () {
-                $('.item-inner > .card-item').first().appendTo('.item-inner');
-                $('.item-inner').css('left', 0);
-                $('.card-item').eq(1).addClass('active');
-            })
-        }
-
-        function rollprev() {
-            if ($('.item-inner').is(':animated')) return false;
-            $('.item-inner > .card-item').last().prependTo('.item-inner');
-            $('.item-inner').css('left', '-310px');
-            $('.card-item').removeClass('active').eq(1).addClass('active');
-            $('.item-inner').stop().animate({
-                left: '0px',
-            }, 1000);
-        }
-
-        function rollnext() {
-            $('.card-item').removeClass('active').eq(2).addClass('active');
-            $('.item-inner').stop().animate({
-                left: '-310px',
-            }, 1000, function () {
-                $('.item-inner > .card-item').first().appendTo('.item-inner');
-                $('.item-inner').css('left', 0);
-                $('.card-item').eq(1).addClass('active');
-            })
-        }
-
-        $('.item-inner').on('mouseenter', function () {
-            if (roller != null) {
-                clearInterval(roller);
-            }
-        });
-
-
-        $('.item-inner').on('mouseleave', function () {
-            loopAni();
-        });
-
-        $('.card-item').on('click', function () {
-            var idx = $(this).index();
-            if (idx == 0 && !$(this).hasClass('active')) {
-                rollprev();
-            }
-            else if (idx == 2 && !$(this).hasClass('active')) {
-                rollnext();
-            }
-        });
+        $('.vdo-slick').slick({
+            centerMode: true,
+            centerPadding: '0',
+            slidesToShow: 3,
+            prevArrow: false,
+            nextArrow: false,
+            dots: false,
+            cssEase: 'ease-out',
+            useTransform: false,
+        })
     }
 
     // 팝업 활성화 / 비활성화
@@ -280,7 +233,7 @@
         // 맞춤형 건강정보
         initHealthInfo();
 
-        chat365.init();
+        // chat365.init();
 
         // popControl
         popControl();

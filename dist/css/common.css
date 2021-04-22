@@ -94,18 +94,18 @@
     }
     .h-inner .logo{
         position: absolute;
-        top: 40px;
+        top: 15px;
         left: 0;
         height: 30px;
     }
     .h-inner .logo > a{
         display: block;
-        width: 160px;
-        height: 30px;
+        width: 200px;
+        height: 60px;
         font-size: 0;
         text-indent: -9999px;
         overflow: hidden;
-        background: url(../img/img-menu-logo.png) no-repeat;
+        background: url(../img/img-menu-logo.svg) no-repeat;
     }
 
 
@@ -493,9 +493,6 @@
                     transition-delay: .9s;
         }
 
-        .mining-list-cont{
-
-        }
         .mining-list-cont dt{
             font-weight: 700;
             font-size: 22px;
@@ -791,6 +788,28 @@
             overflow: hidden;
         }
 
+
+        /* new */
+        .vdo-slider {
+            width: 1020px;
+            position: relative;
+            margin: 0 auto;
+            -webkit-box-sizing: content-box;
+                    box-sizing: content-box;
+            padding: 0 20px;
+            height: 225px;
+        }
+        .vdo-slider .item {
+            position: absolute;
+            top: 50%;
+            margin-top: -112px;
+            width: 400px;
+            height: 225px;
+        }
+        .vdo-slider img {
+            display: block;
+            width: 100%;
+        }
     /* // 맞춤형 건강정보 */
 
 
