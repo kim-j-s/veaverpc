@@ -92,7 +92,6 @@
             // 건강365
             if (pageNum == 4 && !$('.chat-in').hasClass('passed')) {
                 $('.chat-in').addClass('passed');
-                chat365.start();
             }
 
             if(!isMac) {
@@ -124,6 +123,53 @@
             $navAnchor.removeClass('on');
             movePage(1);
         });
+    }
+
+    function initVdoSlider() {
+        var $slider = $('.vdo-slider-wrap'); // vdo-slider-wrap
+        var $btnPrev = $slider.find('.btn-prev'); // 이전
+        var $btnNext = $slider.find('.btn-next'); // 이후
+        var timer = null;
+
+        function getSnum() {
+            return Number($slider.attr('snum'));
+        }
+
+        function moveTo(n) {
+            $slider.attr('snum', n);
+        }
+
+        function autoplay() {
+            var aft = getSnum()+1;
+            if(aft == 7) aft = 1;
+
+            moveTo(aft);
+
+            clearTimeout(timer);
+            timer = setTimeout(autoplay, 3000);
+        }
+
+        $btnPrev.on('click', function() {
+            var aft = getSnum()-1;
+            if(aft == 0) aft = 6;
+
+            moveTo(aft);
+
+            clearTimeout(timer);
+            timer = setTimeout(autoplay, 3000);
+        });
+
+        $btnNext.on('click', function() {
+            var aft = getSnum()+1;
+            if(aft == 7) aft = 1;
+
+            moveTo(aft);
+
+            clearTimeout(timer);
+            timer = setTimeout(autoplay, 3000);
+        });
+
+        timer = setTimeout(autoplay, 3000);
     }
 
     // 메인 슬라이드
@@ -233,11 +279,8 @@
         // 맞춤형 건강정보
         initHealthInfo();
 
-<<<<<<< HEAD
-        // chat365.init();
-=======
-        //chat365.init();
->>>>>>> 48e0022e4f09cb748d7a6be7d3d45a9dac8b7d53
+        // 비디오 슬라이더
+        initVdoSlider();
 
         // popControl
         popControl();
