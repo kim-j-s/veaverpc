@@ -1739,7 +1739,19 @@
             transition: transform .4s;
         }
         .vdo-slider .item.is-playing .btn-play {
-            display: none !important;
+            opacity: 0;
+            background: url(../img/stop.svg) no-repeat;
+            background-size: contain;
+            transform: translateY(-57px);
+            transition: opacity .2s;
+        }
+        .vdo-slider .item.is-playing.is-pause .btn-play {
+            background: url(../img/play.svg) no-repeat;
+            background-size: contain;
+        }
+        .vdo-slider .item.is-playing video:hover ~ .btn-play,
+        .vdo-slider .item.is-playing .btn-play:hover {
+            opacity: 1;
         }
         .vdo-slider .item.is-playing .btn-close {
             display: block;

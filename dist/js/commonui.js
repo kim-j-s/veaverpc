@@ -198,22 +198,32 @@
                 video.src = videoSrc;
             }
 
-            video.onpause = function () {
+            video.onended = function () {
                 video.currentTime = 0;
-                $wrap.removeClass('is-playing');
+                $wrap.removeClass('is-playing').removeClass('is-pause');
                 $contentWrap.removeClass('dimmed');
                 timer = setTimeout(autoplay, 3000);
             };
 
             $(this).siblings('.btn-close').on('click', function () {
-                video.pause();
+                video.onended();
             });
 
             $(this).siblings('.btn-play').on('click', function () {
-                $wrap.addClass('is-playing');
-                $contentWrap.addClass('dimmed');
-                clearTimeout(timer);
-                video.play();
+                if($wrap.hasClass('is-playing')) {
+                    if($wrap.hasClass('is-pause')) {
+                        video.play();
+                        $wrap.removeClass('is-pause');
+                    } else {
+                        video.pause();
+                        $wrap.addClass('is-pause');
+                    }
+                } else {
+                    $wrap.addClass('is-playing');
+                    $contentWrap.addClass('dimmed');
+                    clearTimeout(timer);
+                    video.play();
+                }
             });
         });
 
