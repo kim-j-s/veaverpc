@@ -2556,7 +2556,7 @@
 
         /* 6 */
         .vdo-slider-wrap[snum="6"] .item:nth-child(6)::after {display: none;}
-        .vdo-slider-wrap[snum="6"] .item .btn-play {display: block;}
+        .vdo-slider-wrap[snum="6"] .item:nth-child(6) .btn-play {display: block;}
         .vdo-slider-wrap[snum="6"] .item:nth-child(1) {-webkit-transform: translateX(310px);-ms-transform: translateX(310px);transform: translateX(310px);z-index: 9;}
         .vdo-slider-wrap[snum="6"] .item:nth-child(2) {-webkit-transform: translateX(310px);-ms-transform: translateX(310px);transform: translateX(310px);z-index: 8;opacity: 0;}
         .vdo-slider-wrap[snum="6"] .item:nth-child(3) {-webkit-transform: translateX(310px);-ms-transform: translateX(310px);transform: translateX(310px);z-index: 8;opacity: 0;}
