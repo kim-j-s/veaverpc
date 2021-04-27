@@ -6,9 +6,29 @@
     //     else return false;
     // })();
     var isMac = (function () {
-        if (navigator.appVersion.indexOf("Mac")!=-1) return true;
+        if (navigator.appVersion.indexOf("Mac") != -1) return true;
         else return false;
     })();
+
+    const checkMobile = (function () {
+        const varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
+
+        if (varUA.indexOf('android') > -1) {
+            //안드로이드
+            return 'android';
+        } else if (varUA.indexOf('iphone') > -1 || varUA.indexOf('ipad') > -1 || varUA.indexOf('ipod') > -1) {
+            //IOS
+            return 'ios';
+        } else {
+            //아이폰, 안드로이드 외
+            return 'other';
+        }
+    })();
+
+    function checkVideoFe(src) {
+        const arr = src.split('?')[0].split('.');
+        return arr[arr.length - 1];
+    }
 
     function initSlider() {
         var $slider = $('.content-wrap'); // content-wrap
@@ -27,7 +47,7 @@
 
         var wheelEvtListener = null;
 
-        if(isMac) {
+        if (isMac) {
             // safrai
             $slider.on('wheel', function (e) {
                 // console.log(e);
@@ -74,7 +94,7 @@
 
         // 페이지 이동
         function movePage(pageNum) {
-            if(isMac) {
+            if (isMac) {
                 isMoving = true;
             }
 
@@ -94,15 +114,15 @@
                 $('.chat-in').addClass('passed');
             }
 
-            if(!isMac) {
+            if (!isMac) {
                 $slide.off('wheel', wheelEvtListener);
             }
 
             setTimeout(function () {
-                if(isMac) {
+                if (isMac) {
                     isMoving = false;
                 } else {
-                    $slide.eq(pageNum-1).on('wheel', wheelEvtListener);
+                    $slide.eq(pageNum - 1).on('wheel', wheelEvtListener);
                 }
             }, movingTime);
         }
@@ -127,9 +147,11 @@
 
     function initVdoSlider() {
         var $slider = $('.vdo-slider-wrap'); // vdo-slider-wrap
+        var $contentWrap = $slider.closest('.content'); // vdo-slider-wrap
         var $btnPrev = $slider.find('.btn-prev'); // 이전
         var $btnNext = $slider.find('.btn-next'); // 이후
         var timer = null;
+        var $video = $slider.find('video');
 
         function getSnum() {
             return Number($slider.attr('snum'));
@@ -140,8 +162,8 @@
         }
 
         function autoplay() {
-            var aft = getSnum()+1;
-            if(aft == 7) aft = 1;
+            var aft = getSnum() + 1;
+            if (aft == 7) aft = 1;
 
             moveTo(aft);
 
@@ -149,9 +171,56 @@
             timer = setTimeout(autoplay, 3000);
         }
 
-        $btnPrev.on('click', function() {
-            var aft = getSnum()-1;
-            if(aft == 0) aft = 6;
+        $video.each(function () {
+            var video = this;
+            var videoSrc = this.src;
+            var fe = checkVideoFe(this.src);
+            var $wrap = $(this).parent();
+
+            if (fe == 'm3u8') {
+                if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = videoSrc + "?playsinline=1";
+                } else if (Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(videoSrc);
+                    hls.attachMedia(video);
+
+                    hls.on(Hls.Events.ERROR, function (event, data) {
+                        var errorType = data.type;
+                        var errorDetails = data.details;
+                        var errorFatal = data.fatal;
+
+                        hls.destroy();
+                    });
+                }
+            } else {
+                video.setAttribute('playsinline', true);
+                video.src = videoSrc;
+            }
+
+            video.onpause = function () {
+                video.currentTime = 0;
+                $wrap.removeClass('is-playing');
+                $contentWrap.removeClass('dimmed');
+                timer = setTimeout(autoplay, 3000);
+            };
+
+            $(this).siblings('.btn-close').on('click', function () {
+                video.pause();
+            });
+
+            $(this).siblings('.btn-play').on('click', function () {
+                $wrap.addClass('is-playing');
+                $contentWrap.addClass('dimmed');
+                clearTimeout(timer);
+                video.play();
+            });
+        });
+
+
+        $btnPrev.on('click', function () {
+            var aft = getSnum() - 1;
+            if (aft == 0) aft = 6;
 
             moveTo(aft);
 
@@ -159,9 +228,9 @@
             timer = setTimeout(autoplay, 3000);
         });
 
-        $btnNext.on('click', function() {
-            var aft = getSnum()+1;
-            if(aft == 7) aft = 1;
+        $btnNext.on('click', function () {
+            var aft = getSnum() + 1;
+            if (aft == 7) aft = 1;
 
             moveTo(aft);
 
