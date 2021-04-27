@@ -2405,6 +2405,9 @@
             transition: opacity 1s, -webkit-transform 1s;
             transition: transform 1s, opacity 1s;
             transition: transform 1s, opacity 1s, -webkit-transform 1s;
+            -webkit-box-shadow: 2px 2px 8px 2px rgba(0,0,0,.5);
+                    box-shadow: 2px 2px 8px 2px rgba(0,0,0,.5);
+            overflow: hidden;
         }
         .vdo-slider .item::after {
             content: '';
@@ -2421,9 +2424,9 @@
             display: block;
             position: absolute;
             left: 0;
-            top: 0;
+            top: -1px;
             width: 100%;
-            height: 100%;
+            height: calc(100% + 2px);
         }
         .vdo-slider video {
             display: block;
@@ -2451,6 +2454,9 @@
             background-size: contain;
             right: -220px;
             top: -164px;
+        }
+        .vdo-slider .item.is-playing {
+            overflow: visible;
         }
         .vdo-slider .item.is-playing::before {
             content: '';
