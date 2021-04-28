@@ -21,6 +21,10 @@
         text-align: right !important;
     }
 
+    .mt20{
+        margin-top: 20px !important;
+    }
+
     .tit-h2{
         font-size: 45px;
         line-height: 66px;
@@ -69,6 +73,16 @@
         color: #fff;
         background: #056bff;
         border-radius: 45px;
+    }
+    .btn.bl{
+        min-width: 100px;
+        padding: 0 25px;
+        font-weight: 400;
+        font-size: 18px;
+        color: #fff;
+        line-height: 50px;
+        background: #000;
+        border-radius: 7px;
     }
 
 /* // common */
@@ -2080,6 +2094,10 @@
             transform: translate(-50%, -50%);
             background: #fff;
         }
+        .layer-cont.mini{
+            width: 390px;
+            padding: 40px;
+        }
         .layer-cont.trems{
             padding: 0;
         }
@@ -2127,6 +2145,13 @@
         }
         .flow-list > li.ty4{
             background: url(../img/img-num-04.png) no-repeat;
+        }
+
+        .layer-cont .alert-txt{
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 27px;
+            text-align: center;
         }
 
         .arrow-next{
