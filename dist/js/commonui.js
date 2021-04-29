@@ -124,7 +124,7 @@
         }
 
         // 네비
-        $navAnchor.on('click', function (e) {
+        $navAnchor.not('.exception').on('click', function (e) {
             e.preventDefault();
 
             $navAnchor.removeClass('on');

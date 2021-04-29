@@ -2112,10 +2112,12 @@
             padding: 60px 50px 60px 50px;
             transform: translate(-50%, -50%);
             background: #fff;
+            border: 2px solid #000;
         }
         .layer-cont.mini{
             width: 390px;
             padding: 40px;
+            border: none;
         }
         .layer-cont.trems{
             padding: 0;
@@ -2324,10 +2326,51 @@
         }
         .pager > .prev,
         .pager > .next{
+            position: relative;
             width: 30px;
             height: 30px;
             border: 1px solid #dbdee5;
             border-radius: 4px;
+        }
+        .pager > .prev:before{
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 8px;
+            width: 10px;
+            border-bottom: 1px solid #000;
+            opacity: 0.6;
+            transform: rotate(-45deg);
+        }
+        .pager > .prev:after{
+            content: '';
+            position: absolute;
+            top: 17px;
+            left: 8px;
+            width: 10px;
+            border-bottom: 1px solid #000;
+            opacity: 0.6;
+            transform: rotate(45deg);
+        }
+        .pager > .next:before{
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 8px;
+            width: 10px;
+            border-bottom: 1px solid #000;
+            opacity: 0.6;
+            transform: rotate(-135deg);
+        }
+        .pager > .next:after{
+            content: '';
+            position: absolute;
+            top: 17px;
+            left: 8px;
+            width: 10px;
+            border-bottom: 1px solid #000;
+            opacity: 0.6;
+            transform: rotate(135deg);
         }
 
         .page-num > a{
