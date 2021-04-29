@@ -70,11 +70,7 @@
                 if (bfAbsDtY > absDtY) {
                     isDown = true;
                 }
-                // if (bfAbsDtY <= absDtY) {
-                //     isDown = false;
-                // } else {
-                //     isDown = true;
-                // }
+
                 bfAbsDtY = absDtY;
             });
         } else {
@@ -128,7 +124,7 @@
         }
 
         // 네비
-        $navAnchor.not('.exception').on('click', function (e) {
+        $navAnchor.on('click', function (e) {
             e.preventDefault();
 
             $navAnchor.removeClass('on');
@@ -206,6 +202,7 @@
             };
 
             $(this).siblings('.btn-close').on('click', function () {
+                video.pause();
                 video.onended();
             });
 

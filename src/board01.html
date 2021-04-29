@@ -35,8 +35,8 @@
                                     <strong class="color02">건강에 대한<br> 모든 궁금증과 해답을 모았다!</strong>
                                 </h2>
                                 <div class="store-btns">
-                                    <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
-                                    <a href="#" class="link-store"><span class="app-store">App Store</span></a>
+                                    <a href="#" class="link-store" data-open="alert"><span class="google-play">Google Play</span></a>
+                                    <a href="#" class="link-store" data-open="alert"><span class="app-store">App Store</span></a>
                                 </div>
                             </div>
                         </div>
@@ -48,8 +48,8 @@
                                     <strong class="color02">전문의가 직접<br> 설명해주는 건강 정보!</strong>
                                 </h2>
                                 <div class="store-btns">
-                                    <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
-                                    <a href="#" class="link-store"><span class="app-store">App Store</span></a>
+                                    <a href="#" class="link-store" data-open="alert"><span class="google-play">Google Play</span></a>
+                                    <a href="#" class="link-store" data-open="alert"><span class="app-store">App Store</span></a>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +61,8 @@
                                     <strong class="color02">언제, 어디서나<br> 함께 하는 우리집 건강 주치의</strong>
                                 </h2>
                                 <div class="store-btns">
-                                    <a href="#" class="link-store"><span class="google-play">Google Play</span></a>
-                                    <a href="#" class="link-store"><span class="app-store">App Store</span></a>
+                                    <a href="#" class="link-store" data-open="alert"><span class="google-play">Google Play</span></a>
+                                    <a href="#" class="link-store" data-open="alert"><span class="app-store">App Store</span></a>
                                 </div>
                             </div>
                         </div>
@@ -422,7 +422,7 @@
                         <li><span>사업자등록번호 119 – 81 - 46288</span></li>
                     </ul>
                     <p class="copyright">
-                        Copyright © Veaver, Inc. All rights reserved.
+                        KOAN HEALTHCARE Inc | ©2021. veaver, Inc. All rights reserved.
                     </p>
                 </div>
             </footer>
@@ -859,135 +859,20 @@
     </div>
     <!-- // 개인정보처리방침 팝업 -->
 
+    <!-- 안내문구 팝업 -->
+    <div class="layer-pop" data-openpop="alert">
+        <div class="layer-cont mini">
+            <p class="alert-txt">5월 서비스 런칭을 준비중입니다.<br> 조금만 기다려주세요!</p>
+            <div class="btn-area mt20">
+                <button type="button" class="btn bl mini layer-close">닫기</button>    
+            </div>            
+        </div>
+    </div>
+    <!-- // 안내문구 팝업 -->
+
     <!-- 공동인증서 팝업 -->
     <div class="layer-pop active" data-openpop="board">
         <div class="layer-cont">
-
-
-<style>
-.tbl-div{
-    border-top: 2px solid #000;
-    border-bottom: 1px solid #ebeff3;
-}
-.tbl-div > table{
-    table-layout: fixed;
-    width: 100%;
-}
-.tbl-div > table thead th{
-    padding: 12px 0;
-    font-weight: 400;
-    font-size: 18px;
-    color: #74777b;
-    line-height: 27px;
-}
-.tbl-div > table tbody td{
-    padding: 12px 5px;
-    font-weight: 400;
-    font-size: 16px;
-    color: #000;
-    line-height: 24px;
-    text-align: center;
-    border-top: 1px solid #ebeff3;
-}
-.tbl-div > table tr.point td{
-    font-weight: 700;
-    background: #f7faff;
-}
-.tbl-div > table tbody td.del{
-    color: #949699;
-}
-.tbl-div > table tbody td a{
-    display: flex;
-    flex-direction: row;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-weight: 400;
-    font-size: 16px;
-    color: #000;
-    line-height: 27px;
-}
-.tbl-div > table tbody td a .txt{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.tbl-div > table tbody td a .re-ico{
-    line-height: 27px;
-}
-
-.new{
-    display: inline-block;
-    vertical-align: middle;
-    width: 24px;
-    height: 24px;
-    margin-left: 4px;
-    overflow: hidden;
-    text-indent: -999px;
-    background: url(../img/ic-list-new.png) no-repeat;
-}
-.re-ico{
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 8px;
-    padding-left: 24px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: #74777b;
-    background: url(../img/ic-list-re.png) no-repeat left center;
-}
-.noti-rnd{
-    display: inline-block;
-    padding: 0 10px;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 26px;
-    color: #fff;
-    border-radius: 25px;
-    background: #056bff;
-}
-
-.lock{
-    padding-left: 24px;
-    background: url(../img/ic-list-lock.png) no-repeat left center;
-}
-
-
-.tbl-top{
-    display: flex;
-    flex-direction: row;
-}
-.tbl-top > *{
-    flex: 1 1 auto;
-    align-self: center;
-}
-
-.tbl-top .title{
-    font-weight: 700;
-    font-size: 24px;
-    color: #1e1e1e;
-    line-height: 36px;
-}
-
-.tbl-top .input-text{
-    display: inline-block;
-    width: 300px;
-}
-
-.input-text{
-    display: block;
-}
-.input-text.search{
-    background: url(../img/ic-search.png) no-repeat right 20px center;
-}
-.input-text > input{
-    display: block;
-    width: 100%;
-}
-</style>
-
-
             <div class="tbl-top">
                 <strong class="title">자유게시판</strong>
                 <div class="t-right">
@@ -1031,7 +916,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>9</td>
                             <td class="t-left">
                                 <a href="">
                                     <span class="txt">정식오픈은 언제인가요?</span>
@@ -1043,7 +928,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>8</td>
                             <td class="t-left">
                                 <a href="">
                                     <span class="txt">정식오픈은 언제인가요?</span>
@@ -1055,7 +940,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>7</td>
                             <td class="t-left">
                                 <a href="">
                                     <span class="txt">정식오픈은 언제인가요?</span>
@@ -1067,7 +952,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>6</td>
                             <td class="t-left">
                                 <a href="">
                                     <span class="txt">정식오픈은 언제인가요?</span>
@@ -1079,7 +964,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>5</td>
                             <td class="t-left">
                                 <a href="">
                                     <span class="txt">정식오픈은 언제인가요?</span>
@@ -1091,7 +976,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>4</td>
                             <td class="t-left del">관리자에 의해 숨김 처리 된 게시글입니다.</td>
                             <td>글쓴이</td>
                             <td class="color04">2021-04-30</td>
@@ -1099,7 +984,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>3</td>
                             <td class="t-left">
                                 <a href="">
                                     <span class="txt">공동인증서 등록이 안돼요. 공동인증서 등록이 안돼요. 공동인증서 등록이 안돼요.</span> <span class="re-ico">3</span>
@@ -1111,7 +996,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>2</td>
                             <td class="t-left">
                                 <a href="">
                                     <span class="txt">정식오픈은 언제인가요?</span>
@@ -1123,7 +1008,7 @@
                             <td class="color04">100</td>
                         </tr>
                         <tr>
-                            <td>10</td>
+                            <td>1</td>
                             <td class="t-left">
                                 <a href="">
                                     <span class="txt">정식오픈은 언제인가요?</span>
@@ -1137,13 +1022,29 @@
                     </tbody>
                 </table>
             </div>
-
-
+            <div class="tbl-bottom">
+                <div class="pager">
+                    <a href="" class="prev"></a>
+                    <span class="page-num">
+                        <a href="" class="on">1</a>
+                        <a href="">2</a>
+                        <a href="">3</a>
+                        <a href="">4</a>
+                        <a href="">5</a>
+                        <a href="">6</a>
+                        <a href="">7</a>
+                        <a href="">8</a>
+                        <a href="">9</a>
+                        <a href="">10</a>
+                    </span>
+                    <a href="" class="next"></a>
+                </div>
+                <a href="" class="btn bl">글쓰기</a>
+            </div>
             <button type="button" class="btn close layer-close">닫기</button>
         </div>
     </div>
     <!-- // 공동인증서 팝업 -->
 
 </body>
-
 </html>
