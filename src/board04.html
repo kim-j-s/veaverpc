@@ -1,0 +1,52 @@
+@@include('head.html')
+
+<body>
+    @@include('index.html')
+
+    <!-- 자유게시판 팝업 -->
+    <div class="layer-pop active" data-openpop="board">
+        <div class="layer-cont">
+            <div class="tbl-top">
+                <strong class="title">자유게시판</strong>
+            </div>
+
+            <div class="tbl-div">
+                <div class="input-text">
+                    <input type="text" placeholder="제목을 입력하세요.">
+                </div>
+
+                <!-- 에디터 영역 -->
+                <div class="write-board">
+                    <label class="input-checkbox">
+                        <input type="checkbox"><span>비밀글</span>
+                    </label>
+                </div>
+                <!-- // 에디터 영역 -->
+            </div>
+            <div class="btn-area">
+                <button type="button" class="btn gr">취소</button>
+                <button type="button" class="btn bl">작성</button>
+            </div>
+            
+<style>
+.write-board{
+    margin-top: 10px;
+    height: 300px;
+    border: 1px solid #dbdee5;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+
+
+
+</style>
+
+
+            <button type="button" class="btn close layer-close">닫기</button>
+        </div>
+    </div>
+    <!-- // 자유게시판 팝업 -->
+
+</body>
+</html>
