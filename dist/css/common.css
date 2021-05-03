@@ -3087,11 +3087,7 @@
 
     /* table */
 
-        .board-wrap{
-            width: 1130px;
-            margin: 0 auto;
-            padding: 120px 0 30px 0;
-        }
+        
 
         .tbl-div{
             border-top: 2px solid #000;
@@ -3148,7 +3144,16 @@
             color: #000;
             line-height: 27px;
         }
-        .tbl-div.write td{
+
+        .board-wrap{
+            width: 1080px;
+            margin: 0 auto;
+            padding: 120px 0 30px 0;
+        }
+        .tbl-div.write > table th,
+        .tbl-div.write > table td{
+            padding: 5px 0;
+            text-align: left;
             border-bottom: none;
         }
         .tbl-div.write > table tbody td{
@@ -3316,6 +3321,13 @@
         .page-num > a.on{
             font-weight: 700;
             color: #000;
+        }
+
+        .write-board{
+            min-height: 300px;
+            border: 1px solid #dbdee5;
+            border-radius: 7px;
+            overflow: hidden;
         }
 
     /* // table */
