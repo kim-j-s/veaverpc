@@ -1,7 +1,62 @@
 @@include('head.html')
 
 <body>
-    @@include('index.html')
+    <!-- 헤더영역 -->
+    <header>
+        <div class="h-inner">
+            <h1 class="logo"><a href="#">KONA health</a></h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#" title="코나헬스">코나헬스</a></li>
+                    <li><a href="#" title="AI헬스큐">AI헬스큐</a></li>
+                    <li><a href="#" title="건강365">건강365</a></li>
+                    <li><a href="#" title="예방접종수첩">예방접종수첩</a></li>
+                    <li><a href="#" title="맞춤형 건강정보">맞춤형 건강정보</a></li>
+                    <li><a href="#" title="자유게시판" class="exception" data-open="board">자유게시판</a></li>
+                </ul>
+            </nav>
+            <div class="h-util">
+                <button type="button" class="rnd-d ty1" data-open="layer">공동인증서 내려받기</button>
+            </div>
+        </div>
+    </header>
+    <!-- //헤더영역 -->
+
+    <!-- footer -->
+    <section class="content ty7">
+        <footer>
+            <div class="in-cont">
+                <ul class="dash-list">
+                    <li><a href="" data-open="layer02">이용약관</a></li>
+                    <li><a href="" data-open="layer03">개인정보처리방침</a></li>
+                </ul>
+                <ul class="dash-list">
+                    <li><span>서울특별시 영등포구 국회대로62길 동성빌딩9층 대표자 : 조정일</span></li>
+                    <li><span>사업자등록번호 119 – 81 - 46288</span></li>
+                </ul>
+                <p class="copyright">
+                    ©2021. KONA HEALTHCARE Inc  All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </section>
+    <!-- // footer -->
+
+
+<style>
+.content.ty7{
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+
+</style>
+
+
 
     <!-- 자유게시판 팝업 -->
     <div class="layer-pop active" data-openpop="board">
