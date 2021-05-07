@@ -1735,6 +1735,9 @@
             -webkit-animation-fill-mode: forwards;
                     animation-fill-mode: forwards;
         }
+        .content.ty4 .mockup-box {
+            background-image:url(../img/img-mockup-shadow02.svg);
+        }
 
     /* // 건강관리 365 */
 
