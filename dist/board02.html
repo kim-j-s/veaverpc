@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko" class="board">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>KONA health</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="js/type-hangul.bundle.js"></script> -->
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script type="text/javascript" src="js/hls.js"></script>
+    <script type="text/javascript" src="js/commonui.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        document.createElement("header"); 
+        document.createElement("nav"); 
+        document.createElement("section"); 
+        document.createElement("article"); 
+        document.createElement("footer");
+    </script>
+<![endif]-->
+</head>
+
+<body>
+    <!-- 헤더영역 -->
+    <header>
+        <div class="h-inner">
+            <h1 class="logo"><a href="#">KONA health</a></h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#" title="코나헬스?">코나헬스?</a></li>
+                    <li><a href="#" title="AI헬스큐">AI헬스큐</a></li>
+                    <li><a href="#" title="건강365">건강365</a></li>
+                    <li><a href="#" title="예방접종수첩">예방접종수첩</a></li>
+                    <li><a href="#" title="맞춤형 건강정보">맞춤형 건강정보</a></li>
+                    <li><a href="#" title="자유게시판" class="exception" data-open="board">자유게시판</a></li>
+                </ul>
+            </nav>
+            <div class="h-util">
+                <button type="button" class="rnd-d ty1" data-open="layer">공동인증서 복사하기</button>
+            </div>
+        </div>
+    </header>
+    <!-- //헤더영역 -->
+
+    <!-- 게시판 -->
+    <div class="board-wrap">
+        <div class="tbl-top">
+            <strong class="title">자유게시판</strong>
+            <div class="t-right">
+                <div class="input-text search">
+                    <input type="text" placeholder="검색어를 입력하세요.">
+                </div>
+            </div>
+        </div>
+        <div class="tbl-div">
+            <table>
+                <colgroup>
+                    <col style="width: 78px;" />
+                    <col style="*" />
+                    <col style="width: 160px;" />
+                    <col style="width: 140px;" />
+                    <col style="width: 80px;" />
+                    <col style="width: 80px;" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">NO</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">글쓴이</th>
+                        <th scope="col">작성시간</th>
+                        <th scope="col">조회수</th>
+                        <th scope="col">좋아요</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 등록된 글이 없을 경우 노축 -->
+                    <tr>
+                        <td class="none" colspan="6">
+                            검색 결과가 없습니다.
+                        </td>
+                    </tr>
+                    <!-- // 등록된 글이 없을 경우 노축 -->
+                </tbody>
+            </table>
+        </div>
+        <div class="tbl-bottom">
+            <div class="pager">
+                <a href="" class="prev"></a>
+                <span class="page-num">
+                    <a href="" class="on">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="">4</a>
+                    <a href="">5</a>
+                    <a href="">6</a>
+                    <a href="">7</a>
+                    <a href="">8</a>
+                    <a href="">9</a>
+                    <a href="">10</a>
+                </span>
+                <a href="" class="next"></a>
+            </div>
+            <a href="" class="btn bl">글쓰기</a>
+        </div>
+    </div>
+    <!-- // 게시판 -->
+
+    <!-- footer -->
+    <section class="content ty7 static">
+        <footer>
+            <div class="in-cont">
+                <ul class="dash-list">
+                    <li><a href="" data-open="layer02">이용약관</a></li>
+                    <li><a href="" data-open="layer03">개인정보처리방침</a></li>
+                </ul>
+                <ul class="dash-list">
+                    <li><span>서울특별시 영등포구 국회대로62길 동성빌딩9층 대표자 : 조정일</span></li>
+                    <li><span>사업자등록번호 119 – 81 - 46288</span></li>
+                </ul>
+                <p class="copyright">
+                    ©2021. KONA HEALTHCARE Inc All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </section>
+    <!-- // footer -->
+</body>
+
+</html>

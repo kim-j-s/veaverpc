@@ -290,6 +290,7 @@
 
         $('.layer-close').on('click', function () {
             $(this).closest('.layer-pop').removeClass('active').addClass('out');
+            $('body').removeClass('non-scroll');
         })
     }
 
