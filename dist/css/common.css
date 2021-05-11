@@ -85,14 +85,19 @@
         border-radius: 7px;
     }
     .btn.bl{
-        min-width: 100px;
+        min-width: 150px;
         padding: 0 25px;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 18px;
         color: #fff;
-        line-height: 50px;
+        line-height: 60px;
         background: #000;
         border-radius: 7px;
+    }
+    .btn.bl.mini{
+        min-width: 100px;
+        font-weight: 400;
+        line-height: 50px;
     }
 
 /* // common */
