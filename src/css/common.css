@@ -2983,8 +2983,7 @@
             color:#909295;
         }
 
-        .comment-list .comment span.cmt-cont{
-            display:block;
+        .comment-list .comment .cmt-cont{
             padding:10px 0 20px;
             font-size:20px;
             line-height:29px;
@@ -2992,8 +2991,12 @@
 
         .comment-list .comment .cmt-btn {
             position:absolute;
-            top:116px;
+            top:0;
             right:0;
+        }
+
+        .comment-list .comment .cmt-reply {
+            position:relative;
         }
 
         .comment-list .comment .cmt-reply a {
@@ -3001,7 +3004,7 @@
             color:#909295;
         }
 
-        .comment-list .comment .cmt-reply a.on {
+        .comment-list .comment .cmt-reply > a.on {
             font-weight:bold;
         }
 
