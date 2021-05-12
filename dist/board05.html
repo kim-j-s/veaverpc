@@ -82,7 +82,7 @@
                         <!-- 좋아요 버튼 클릭시 on 클래스 추가 -->
                         <a href="#none" class="cmt-heart on">게시글 좋아요<em>3</em></a>
                         <!-- // 좋아요 버튼 클릭시 on 클래스 추가 -->
-                        <a href="#none" class="cmt-share" onclick="openMsg('msg02');">공유하기</a>
+                        <a href="#none" class="cmt-share btn-share">공유하기</a>
                     </div>
                 </div>
 
@@ -99,19 +99,6 @@
                     </div>
                 </div>
                 <!-- // 비밀번호 확인 팝업 -->
-
-                <!-- 공유하기 팝업 -->
-                <div class="layer-pop msg-pop" data-openmsg="msg02">
-                    <div class="msg-cont">
-                        <p class="alert-txt">작성시 등록하신 비밀번호를 입력해주세요.</p>
-                        <div class="pw-confirm">
-                            <div class="input-text">
-                                <input type="password" placeholder="비밀번호">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- // 공유하기 팝업 -->
             </div>
             <!-- // 게시판 View -->
 
@@ -274,6 +261,80 @@
         </section>
         <!-- // footer -->
 
+
+        <!-- SNS 공유 팝업 -->
+        <div class="share-dialog">
+            <div class="share-in-cont">
+                <div class="share-head">
+                    <div class="tit-h3 fw-bold">공유하기</div>
+                    <button type="buton" class="close-btn-right share">닫기</button>
+                </div>
+                <div class="targets">
+                    <a href='http://www.facebook.com/sharer.php?u=' + encodeURIComponent(https://kim-j-s.github.io/veaver/dist/html/07_01.html) class="facebook-share">Facebook</a>
+                    <a href="" class="kakao-share">Kakao</a>
+                </div>
+                <div class="url-copy">
+                    <input type="text" value="http://na1109.cafe24.com/veaver/pub/homepage_pc/index.html" class="input-url">
+                    <a href="#none" class="btn-copy">복사</a>
+                </div>
+            </div>
+        </div>
+        <!-- // SNS 공유 팝업 -->
+
+
+        <!-- sns 공유하기 -->
+        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+        <script>
+            const shareButton = document.querySelector('.btn-share');
+            const shareDialog = document.querySelector('.share-dialog');
+            const closeButton = document.querySelector('.close-btn-right');
+
+            shareButton.addEventListener('click', event => {
+                shareDialog.classList.add('is-open');
+                $('body').addClass('non-scroll');
+            });
+
+            closeButton.addEventListener('click', event => {
+                shareDialog.classList.remove('is-open');
+                $('body').removeClass('non-scroll');
+            });
+
+
+            // 카카오톡 연동
+            Kakao.init('fd3872d29334db88f3bf802e6c8c0ca1');
+            Kakao.Link.createDefaultButton({
+                container: '.kakao-share',
+                objectType: 'feed',
+                content: {
+                    // 제목
+                    title: '코나헬스',
+                    //썸네일
+                    imageUrl: 'https://m.upinews.kr/data/upi/image/20190523/p1065574177335900_669_thum.jpg',
+                    // 링크
+                    link: {
+                        // 모바일 url
+                        mobileWebUrl: 'https://kim-j-s.github.io/veaver/dist/html/07_01.html',
+                        // pc url
+                        webUrl: 'https://kim-j-s.github.io/veaver/dist/html/07_01.html',
+                    }
+                },
+
+            })
+
+            // URL 복사
+
+            $('.url-copy a, .url-copy .input-url').on('click', function() {
+                var urlAddress = $('.url-copy .input-url');
+                //console.log(urlAddress);
+                urlAddress.css('display', 'block').select();
+                document.execCommand("Copy");
+                alert('URL이 복사 되었습니다');
+                return false;
+            });
+        </script>
+        <!-- // sns 공유하기 -->
+
+
         <script>
             function openMsg(msg) {
                 $("[data-openmsg='" + msg + "']").addClass('active');
@@ -285,12 +346,12 @@
                 $(this).toggleClass('on');
             })
 
-
             //댓글버튼
             $('.cmt-reply a').on('click', function() {
                 $(this).toggleClass('on').parent().parent().find('.comment-view').toggleClass('active');
             })
         </script>
+
 </body>
 
 </html>
