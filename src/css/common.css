@@ -2805,11 +2805,12 @@
             height:24px;
             margin-top:-12px;
             background: url('../img/ic-detail-like-nor.svg') no-repeat left center;
+            transition-duration: 0.8s;
         }
 
         .share-area .cmt-heart.on:before {
             background-image:url('../img/ic-detail-like-sel.svg');
-            transition-duration: 0.6s;
+            transition-duration: 0.8s;
         }
 
         .share-area .cmt-share {
